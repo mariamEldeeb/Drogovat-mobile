@@ -29,7 +29,7 @@ class SignUpViewBody extends StatelessWidget {
             RegisHeader(
               title: 'Sign Up',
             ),
-            SizedBox(height: 15),
+            // SizedBox(height: 15),
             CustomTextField(
               hintText: 'Full Name',
               prefixIcon: FontAwesomeIcons.user,
@@ -89,7 +89,7 @@ class SignUpViewBody extends StatelessWidget {
             AnotherWayToSignUp(),
             SizedBox(height: 10),
             MyCustomRichText(
-              firstText: 'Already have an account?    ',
+              firstText: 'Already have an account?',
               secondText: 'SIGN IN',
               onTap: () {
                 navigateTo(SignInView());

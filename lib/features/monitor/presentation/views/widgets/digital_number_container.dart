@@ -14,12 +14,16 @@ class DigitalNumberContainer extends StatelessWidget {
     final hours = createNumberTime(h);
     final minutes = createNumberTime(m);
 
-    return Row(
-      children: [
-        ...hours,
-        DigitalColon(height: 30, color: Colors.black,),
-        ...minutes,
-      ],
+    return SizedBox(
+      width: 90,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          ...hours,
+          DigitalColon(height: 30, color: Colors.black,),
+          ...minutes,
+        ],
+      ),
     );
   }
 

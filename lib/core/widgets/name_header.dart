@@ -4,7 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../utils/colors.dart';
 
 class NameHeader extends StatelessWidget {
-  const NameHeader({super.key, required this.name,});
+  const NameHeader({
+    super.key,
+    required this.name,
+  });
 
   final String name;
 
@@ -13,7 +16,7 @@ class NameHeader extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height / 14,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.only( right: 17),
+      padding: EdgeInsets.only(right: 17),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5),
@@ -22,7 +25,7 @@ class NameHeader extends StatelessWidget {
         color: darkBlueColor,
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
             onPressed: () {},
@@ -32,17 +35,17 @@ class NameHeader extends StatelessWidget {
               size: 26,
             ),
           ),
+          Icon(
+            FontAwesomeIcons.user,
+            color: Colors.white,
+          ),
           Text(
             name,
             style: TextStyle(
               color: Colors.white,
               fontSize: 20,
             ),
-          ),
-          Icon(
-            FontAwesomeIcons.user,
-            color: Colors.white,
-            size: 26,
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

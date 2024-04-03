@@ -22,18 +22,12 @@ class AnotherWayToSignUp extends StatelessWidget {
 
   Widget buildIconContainer({required String logo}){
     return Container(
-      height: 38,
-      width: 38,
+      height: 40,
+      width: 40,
       decoration: ShapeDecoration(
           color: Colors.white,
           shape: OvalBorder(),
-          shadows: [
-            BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 3,
-              blurRadius: 0.5,
-            ),
-          ]),
+      ),
       child: Image.asset(logo),
     );
   }

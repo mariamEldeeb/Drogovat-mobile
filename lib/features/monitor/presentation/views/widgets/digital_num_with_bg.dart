@@ -16,12 +16,12 @@ class DigitalNumWithBG extends StatelessWidget {
         children: [
           DigitalNumber(
             value: 8,
-            height: 35,
+            height: 28,
             color:lightDigitalNumColor,
           ),
           DigitalNumber(
             value: value,
-            height: 35,
+            height: 28,
             color: Colors.black,
           ),
         ]
