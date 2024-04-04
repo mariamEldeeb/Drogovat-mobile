@@ -6,10 +6,11 @@ import '../utils/colors.dart';
 class NameHeader extends StatelessWidget {
   const NameHeader({
     super.key,
-    required this.name,
+    required this.name, this.onTap,
   });
 
   final String name;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class NameHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: onTap,
             icon: Icon(
               Icons.arrow_back_ios_rounded,
               color: Colors.white,

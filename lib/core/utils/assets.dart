@@ -9,6 +9,10 @@ const String heartIcon = 'assets/icons/heart_icon.png';
 const String OSIcon = 'assets/icons/OS_icon.png';
 const String RRIcon = 'assets/icons/RR_icon.png';
 const String TIcon = 'assets/icons/T_icon.png';
+const String homeIcon = 'assets/icons/home_icon.png';
+const String drugIcon = 'assets/icons/drug_icon.png';
+const String personIcon = 'assets/icons/person_icon.png';
+const String settingIcon = 'assets/icons/setting_icon.png';
 
 // images
 const String drugImage = 'assets/images/drug_image.png';
