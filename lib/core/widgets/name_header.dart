@@ -39,13 +39,16 @@ class NameHeader extends StatelessWidget {
             FontAwesomeIcons.user,
             color: Colors.white,
           ),
-          Text(
-            name,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
+          SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              name,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+              overflow: TextOverflow.ellipsis,
             ),
-            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

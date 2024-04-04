@@ -15,10 +15,7 @@ class DigitalNumber extends StatelessWidget {
     required this.color,
     this.padLeft = 0,
   })
-      : assert(value != null),
-        assert(height != null),
-        assert(color != null),
-        super(key: key);
+      :         super(key: key);
 
   @override
   Widget build(BuildContext context) {

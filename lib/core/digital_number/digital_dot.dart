@@ -8,9 +8,7 @@ class DigitalDot extends StatelessWidget {
   final Color color;
 
   DigitalDot({Key? key, required this.height, required this.color})
-      : assert(height != null),
-        assert(color != null),
-        super(key: key);
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +27,7 @@ class _DigitalDotPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_DigitalDotPainter oldDelegate) {
-    return height != oldDelegate.height
-        || color != oldDelegate.color;
+    return height != oldDelegate.height || color != oldDelegate.color;
   }
 
   @override
@@ -42,11 +39,13 @@ class _DigitalDotPainter extends CustomPainter {
       ..color = color
       ..style = PaintingStyle.fill;
 
-    canvas.drawRect(new Rect.fromLTWH(
-      width / 2 - thickness / 2,
-      height - thickness,
-      thickness,
-      thickness,
-    ), paint);
+    canvas.drawRect(
+        new Rect.fromLTWH(
+          width / 2 - thickness / 2,
+          height - thickness,
+          thickness,
+          thickness,
+        ),
+        paint);
   }
 }

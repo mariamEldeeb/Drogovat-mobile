@@ -5,10 +5,11 @@ import '../../../../../core/utils/colors.dart';
 
 class DigitalNumWithBG extends StatelessWidget {
   const DigitalNumWithBG({
-    super.key, required this.value,
+    super.key, required this.value, required this.color,
   });
 
   final int value;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class DigitalNumWithBG extends StatelessWidget {
           DigitalNumber(
             value: value,
             height: 28,
-            color: Colors.black,
+            color: color,
           ),
         ]
     );

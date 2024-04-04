@@ -8,9 +8,7 @@ class DigitalColon extends StatelessWidget {
   final Color color;
 
   DigitalColon({Key? key, required this.height, required this.color})
-      : assert(height != null),
-        assert(color != null),
-        super(key: key);
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

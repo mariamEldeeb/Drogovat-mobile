@@ -11,7 +11,7 @@ class TimeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: MediaQuery.of(context).size.height / 11,//80,
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.only(left: 10,right: 10),
       decoration: BoxDecoration(
@@ -30,6 +30,7 @@ class TimeContainer extends StatelessWidget {
           DigitalNumberContainer(
             h: hour,
             m: minute,
+            timeColor: Colors.black,
           ),
           SizedBox(width: 5),
           const Text(
@@ -41,6 +42,7 @@ class TimeContainer extends StatelessWidget {
           DigitalNumberContainer(
             h: hour,
             m: minute,
+            timeColor: Colors.green,
           ),
           SizedBox(width: 5),
           const Text(
@@ -52,6 +54,7 @@ class TimeContainer extends StatelessWidget {
           DigitalNumberContainer(
             h: hour,
             m: minute,
+            timeColor: Colors.black,
           ),
         ],
       ),
