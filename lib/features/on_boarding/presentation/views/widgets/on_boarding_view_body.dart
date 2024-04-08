@@ -19,7 +19,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
 
   bool isLast = false;
 
-  void submit(){
+  void submit() {
     // CacheHelper.saveData(key: 'onBoarding', value: true).then((value){
     //   if(value){
     //     Get.offAll(LoginView());
@@ -30,7 +30,6 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.only(top: 80, bottom: 40),
       child: Column(
@@ -67,8 +66,9 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                     submit();
                   } else {
                     pageController.nextPage(
-                        duration: const Duration(milliseconds: 750),
-                        curve: Curves.fastLinearToSlowEaseIn,);
+                      duration: const Duration(milliseconds: 750),
+                      curve: Curves.fastLinearToSlowEaseIn,
+                    );
                   }
                 },
                 child: Text(

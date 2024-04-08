@@ -1,5 +1,6 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/monitor_view.dart';
+import 'package:drogovat_mobile/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:drogovat_mobile/features/profile/presentation/views/profiles_view.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/manager/sign_in_cubit.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/sign_in_view.dart';
@@ -31,15 +32,15 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Drogovat',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: darkBlueColor).copyWith(background: backgroundColor),
-          useMaterial3: true,
+          // useMaterial3: true,
           fontFamily: 'Imprima',
         ),
         initialRoute: '/',
         getPages: pages,
-        home: ProfilesView(),
+        home: OnBoardingView(),
       ),
     );
   }

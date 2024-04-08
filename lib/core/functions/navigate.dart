@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-navigateTo(Widget page){
+navigateTo(Widget Function() page){
   Get.to(
       () => page,
     duration: const Duration(milliseconds: 300),

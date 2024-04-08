@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../core/utils/assets.dart';
 
@@ -13,7 +14,7 @@ class RegisHeader extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          child: Image.asset(
+          child: SvgPicture.asset(
             RegisAppBar,
             fit: BoxFit.cover,
           ),
@@ -23,8 +24,11 @@ class RegisHeader extends StatelessWidget {
           right: 80,
           child: Column(
             children: [
-              Image.asset(
-                drugRegisSign,
+              SvgPicture.asset(
+                drugIcon,
+                width: 52,
+                height: 62,
+                fit: BoxFit.contain,
               ),
               SizedBox(height: 18,),
               Text(

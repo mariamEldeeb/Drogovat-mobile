@@ -92,7 +92,7 @@ class SignUpViewBody extends StatelessWidget {
               firstText: 'Already have an account?',
               secondText: 'SIGN IN',
               onTap: () {
-                navigateTo(SignInView());
+                navigateTo(() => SignInView());
               },
             )
           ],

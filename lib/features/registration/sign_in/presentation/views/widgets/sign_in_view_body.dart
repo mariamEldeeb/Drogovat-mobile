@@ -79,7 +79,7 @@ class SignInViewBody extends StatelessWidget {
                 text: 'Sign In',
                 onTap: () {
                   if (formKey.currentState!.validate()) {
-                    navigateTo(MonitorView());
+                    navigateTo(() => MonitorView());
                   }
                 },
               ),

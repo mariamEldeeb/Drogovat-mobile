@@ -14,16 +14,8 @@ class BottomNavItemModel {
 
 List<BottomNavItemModel> bottomNavItems = [
   BottomNavItemModel(
-      icon: settingIcon,
-      title: 'Settings',
-  ),
-  BottomNavItemModel(
       icon: personIcon,
       title: 'Patients',
-  ),
-  BottomNavItemModel(
-      icon: homeIcon,
-      title: 'Home',
   ),
   BottomNavItemModel(
       icon: drugIcon,

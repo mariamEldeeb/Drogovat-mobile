@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../data/models/vital_model.dart';
 
@@ -37,7 +38,7 @@ class VitalListViewItem extends StatelessWidget {
               fontSize: 25,
             ),
           ),
-          Image.asset(
+          SvgPicture.asset(
             vitals[index].icon,
             fit: BoxFit.contain,
             width: 25,

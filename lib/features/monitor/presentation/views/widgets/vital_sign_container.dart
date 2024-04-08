@@ -11,7 +11,6 @@ class VitalSignContainer extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 1.95,
-      //450,
       margin: EdgeInsets.only(left: 10, right: 10),
       padding: EdgeInsets.only(left: 20, right: 20, top: 10),
       decoration: BoxDecoration(

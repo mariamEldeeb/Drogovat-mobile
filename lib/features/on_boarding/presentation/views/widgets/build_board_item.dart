@@ -1,5 +1,6 @@
 import 'package:drogovat_mobile/features/on_boarding/data/models/on_board_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BuildBoardItem extends StatelessWidget {
   const BuildBoardItem({super.key, required this.model});

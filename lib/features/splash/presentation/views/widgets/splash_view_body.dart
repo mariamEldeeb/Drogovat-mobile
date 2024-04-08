@@ -2,6 +2,8 @@ import 'package:drogovat_mobile/core/utils/assets.dart';
 import 'package:drogovat_mobile/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:drogovat_mobile/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -35,14 +37,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
+          SvgPicture.asset(
             logoName,
-            width: MediaQuery.of(context).size.width / 1.1,
+            width: MediaQuery.of(context).size.width / 1.2,
             height: MediaQuery.of(context).size.height / 9,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
           SlidingText(slidingAnimation: slidingAnimation),
         ],
       ),

@@ -16,7 +16,7 @@ class MonitorViewBody extends StatelessWidget {
         NameHeader(
           name: 'Mariam Mohamed abdelaziz Eldeeb',
           onTap: (){
-            navigateTo(ProfilesView());
+            navigateTo(() => ProfilesView());
           },
         ),
         SizedBox(height: 10),

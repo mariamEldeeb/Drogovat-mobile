@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../core/utils/assets.dart';
 
@@ -28,7 +29,7 @@ class AnotherWayToSignUp extends StatelessWidget {
           color: Colors.white,
           shape: OvalBorder(),
       ),
-      child: Image.asset(logo),
+      child: SvgPicture.asset(logo),
     );
   }
 }

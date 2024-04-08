@@ -9,10 +9,7 @@ class OnBoardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Background(
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: OnBoardingViewBody(),
-        ),
+        body: OnBoardingViewBody(),
       ),
     );
   }
