@@ -1,4 +1,4 @@
-import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_state.dart';
+import 'package:drogovat_mobile/features/registration/manager/sign_up_cubit/sign_up_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,5 +30,11 @@ class SignUpCubit extends Cubit<SignUpStates> {
     suffixConfirmPassIcon =
     isConfirmPassword ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash;
     emit(ChangeVisibilityPassIconState());
+  }
+
+  bool isSwitchOn = false;
+  void changeSwitchValue(){
+    isSwitchOn = !isSwitchOn;
+    emit(ChangeSwitchValueState());
   }
 }
