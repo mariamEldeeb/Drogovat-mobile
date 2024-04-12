@@ -1,11 +1,11 @@
-import 'package:drogovat_mobile/features/main_page/presentation/manager/app_cubit/app_status.dart';
-import 'package:drogovat_mobile/features/main_page/presentation/views/widgets/build_custom_bottom_nav_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/colors.dart';
 import '../../manager/app_cubit/app_cubit.dart';
+import '../../manager/app_cubit/app_status.dart';
+import 'build_custom_bottom_nav_icon.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key,});
@@ -17,9 +17,10 @@ class CustomBottomNavBar extends StatelessWidget {
     return BlocBuilder<AppCubit, AppStates>(
       builder: (context, state) {
         return BottomAppBar(
-          padding: EdgeInsets.only(left: 40, right: 40, top: 5),
+          height: MediaQuery.of(context).size.height / 12,
+          padding: const EdgeInsets.only(left: 40, right: 40, top: 5),
           notchMargin: 9,
-          shape: CircularNotchedRectangle(),
+          shape: const CircularNotchedRectangle(),
           color: darkBlueColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +34,7 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               CustomBottomNavIcon(
                 onTap: () => cubit.changeIndex(1),
-                icon: drugIcon,
+                icon: drugSign,
                 iconTappedColor: Colors.white,
                 label: 'Drugs',
                 isTapped: cubit.selectedIndex == 1,

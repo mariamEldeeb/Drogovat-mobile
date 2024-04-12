@@ -3,9 +3,6 @@ import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/buil
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/build_next_potion_container.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/date_time.dart';
-import 'digital_number_container.dart';
-
 class DoseContainer extends StatelessWidget {
   const DoseContainer({super.key});
 
@@ -14,16 +11,16 @@ class DoseContainer extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 5,
-      margin: EdgeInsets.only(left: 10, right: 10),
-      padding: EdgeInsets.only(left: 10, right: 15, top: 15),
+      margin: const EdgeInsets.only(left: 10, right: 10),
+      padding: const EdgeInsets.only(left: 10, right: 15, top: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Colors.white,
       ),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
+          const Column(
             children: [
               Text(
                 'Next potion at:',

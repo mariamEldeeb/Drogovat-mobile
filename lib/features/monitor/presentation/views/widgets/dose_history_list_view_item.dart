@@ -5,12 +5,12 @@ class DoseHistoryListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           '1:15',
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
           ),
         ),

@@ -1,18 +1,13 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
-import 'package:drogovat_mobile/features/monitor/presentation/views/monitor_view.dart';
-import 'package:drogovat_mobile/features/on_boarding/presentation/views/on_boarding_view.dart';
-import 'package:drogovat_mobile/features/profile/presentation/views/profiles_view.dart';
-import 'package:drogovat_mobile/features/registration/sign_in/manager/sign_in_cubit.dart';
-import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/sign_in_view.dart';
-import 'package:drogovat_mobile/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import 'core/app_cubit/app_cubit.dart';
 import 'core/utils/routes.dart';
+import 'features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
+import 'features/initial_page/presentation/views/initial_view.dart';
+import 'features/registration/sign_in/manager/sign_in_cubit.dart';
 import 'features/registration/sign_up/manager/sign_up_cubit.dart';
-import 'features/registration/sign_up/presentation/views/sign_up_view.dart';
 
 
 void main() {
@@ -35,12 +30,12 @@ class MyApp extends StatelessWidget {
         title: 'Drogovat',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: darkBlueColor).copyWith(background: backgroundColor),
-          // useMaterial3: true,
+          useMaterial3: false,
           fontFamily: 'Imprima',
         ),
         initialRoute: '/',
         getPages: pages,
-        home: OnBoardingView(),
+        home: const InitialView(),
       ),
     );
   }

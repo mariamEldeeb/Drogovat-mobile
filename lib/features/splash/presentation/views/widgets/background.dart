@@ -16,8 +16,8 @@ class Background extends StatelessWidget {
             SvgPicture.asset(
               splashBG,
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              fit: BoxFit.fill,
+              // height: MediaQuery.of(context).size.height,
+              fit: BoxFit.cover,
             ),
             body,
           ],

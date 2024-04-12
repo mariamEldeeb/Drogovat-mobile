@@ -26,12 +26,12 @@ class MyCustomRichText extends StatelessWidget {
             color: hintTextColor,
           ),
         ),
-        SizedBox(width: 15,),
+        const SizedBox(width: 15),
         InkWell(
           onTap: onTap,
           child: Text(
             secondText,
-            style: TextStyle(
+            style: const TextStyle(
               decoration: TextDecoration.underline,
               fontSize: 17,
               fontWeight: FontWeight.w900,

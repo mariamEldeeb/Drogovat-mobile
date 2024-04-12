@@ -1,6 +1,5 @@
 import 'package:drogovat_mobile/features/on_boarding/data/models/on_board_model.dart';
 import 'package:drogovat_mobile/features/on_boarding/presentation/views/widgets/build_board_item.dart';
-import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/sign_in_view_body.dart';
 import 'package:drogovat_mobile/features/splash/presentation/views/widgets/small_dots.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +24,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
     //     Get.offAll(LoginView());
     //   }
     // });
-    navigateOffAllTo(SignInView());
+    navigateOffAllTo(const SignInView());
   }
 
   @override
@@ -37,7 +36,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           Expanded(
             child: PageView.builder(
               controller: pageController,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return BuildBoardItem(
                   model: boarding[index],
@@ -59,7 +58,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           ),
           Row(
             children: [
-              Spacer(),
+              const Spacer(),
               TextButton(
                 onPressed: () {
                   if (isLast) {
@@ -71,7 +70,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                     );
                   }
                 },
-                child: Text(
+                child: const Text(
                   'Next',
                   style: TextStyle(
                     color: Colors.white,
@@ -79,10 +78,10 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   ),
                 ),
               ),
-              SizedBox(width: 40),
+              const SizedBox(width: 40),
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           SmallDots(pageController: pageController),
         ],
       ),

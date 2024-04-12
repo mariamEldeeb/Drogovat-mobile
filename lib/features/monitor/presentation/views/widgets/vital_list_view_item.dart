@@ -13,7 +13,7 @@ class VitalListViewItem extends StatelessWidget {
     return Container(
       height: 45,
       width: 200,
-      padding: EdgeInsets.only(left: 20,right: 10),
+      padding: const EdgeInsets.only(left: 20,right: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border(
@@ -34,7 +34,7 @@ class VitalListViewItem extends StatelessWidget {
           ),
           Text(
             vitals[index].vitalValue + ' ' + (vitals[index].unit ?? ''),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 25,
             ),
           ),

@@ -10,9 +10,9 @@ class BuildDoseHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Previous\nDose:',
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
           ),
           textAlign: TextAlign.center,

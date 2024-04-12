@@ -13,8 +13,8 @@ class CustomFloatingActionBtn extends StatelessWidget {
         child: Container(
           width: 78,
           height: 78,
-          decoration: ShapeDecoration(
-            shape: OvalBorder(),
+          decoration: const ShapeDecoration(
+            shape: const OvalBorder(),
             gradient: LinearGradient(
               begin: Alignment(0.00, -1.00),
               end: Alignment(0, 1),
@@ -25,7 +25,7 @@ class CustomFloatingActionBtn extends StatelessWidget {
               ],
             ),
           ),
-          child: Icon(
+          child: const Icon(
             Icons.add_rounded,
             color: Colors.white,
             size: 55,

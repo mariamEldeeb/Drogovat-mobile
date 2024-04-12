@@ -1,6 +1,5 @@
 import 'package:drogovat_mobile/features/on_boarding/data/models/on_board_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class BuildBoardItem extends StatelessWidget {
   const BuildBoardItem({super.key, required this.model});
@@ -13,9 +12,9 @@ class BuildBoardItem extends StatelessWidget {
 
     return Column(
       children: [
-        Text(
+        const Text(
           'DROGOVAT',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 37,
             color: Colors.white,
           ),
@@ -32,7 +31,7 @@ class BuildBoardItem extends StatelessWidget {
             children: [
               TextSpan(
                 text: words[0],
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 25,
                   fontFamily: 'Imprima',
@@ -40,7 +39,7 @@ class BuildBoardItem extends StatelessWidget {
               ),
               TextSpan(
                 text: model.description.replaceAll(words[0], ''),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontFamily: 'Imprima',

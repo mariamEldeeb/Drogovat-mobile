@@ -3,10 +3,12 @@ import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_st
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/utils/colors.dart';
+import '../../../core/utils/colors.dart';
 
 class CustomSwitch extends StatelessWidget {
-  const CustomSwitch({super.key});
+  const CustomSwitch({super.key, required this.switchLabel});
+
+  final String switchLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,13 @@ class CustomSwitch extends StatelessWidget {
                 onChanged: (val) {
                   cubit.changeSwitchValue();
                 },
-                activeColor: Color(0xff154908),
-                activeTrackColor: Color(0xff6ED93C),
+                activeColor: const Color(0xff154908),
+                activeTrackColor: const Color(0xff6ED93C),
                 inactiveThumbColor: Colors.white,
-                inactiveTrackColor: Color(0xff787880),
+                inactiveTrackColor: const Color(0xff787880),
               ),
               Text(
-                'I accept all the policy & terms',
+                switchLabel,
                 style: TextStyle(
                   color: hintTextColor,
                   fontSize: 16,

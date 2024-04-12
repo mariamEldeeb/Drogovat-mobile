@@ -7,7 +7,7 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Background(
+    return const Background(
       body: SplashViewBody(),
     );
   }

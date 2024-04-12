@@ -13,7 +13,7 @@ class TimeContainer extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height / 11,//80,
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(left: 10,right: 10),
+      margin: const EdgeInsets.only(left: 10,right: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
@@ -32,7 +32,7 @@ class TimeContainer extends StatelessWidget {
             m: minute,
             timeColor: Colors.black,
           ),
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           const Text(
             'Now',
             style: TextStyle(
@@ -44,7 +44,7 @@ class TimeContainer extends StatelessWidget {
             m: minute,
             timeColor: Colors.green,
           ),
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           const Text(
             'End',
             style: TextStyle(

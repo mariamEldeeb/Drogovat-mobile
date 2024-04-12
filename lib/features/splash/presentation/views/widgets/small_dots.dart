@@ -13,7 +13,7 @@ class SmallDots extends StatelessWidget {
     return SmoothPageIndicator(
       controller: pageController,
       count: boarding.length,
-      effect: ScrollingDotsEffect(
+      effect: const ScrollingDotsEffect(
         dotColor: Colors.white,
         activeDotColor: Colors.white,
         radius : 8,

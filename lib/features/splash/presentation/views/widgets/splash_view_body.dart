@@ -42,7 +42,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             width: MediaQuery.of(context).size.width / 1.2,
             height: MediaQuery.of(context).size.height / 9,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           SlidingText(slidingAnimation: slidingAnimation),
         ],
       ),
@@ -55,18 +55,18 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(milliseconds: 700),
     );
 
-    slidingAnimation = Tween<Offset>(begin: Offset(0, 5), end: Offset(0, 0))
+    slidingAnimation = Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0))
         .animate(animationController);
 
     animationController.forward();
   }
 
   void navigateToNextScreen() {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Get.to(
-        OnBoardingView(),
+        const OnBoardingView(),
         transition: Transition.fadeIn,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
       );
     });
   }

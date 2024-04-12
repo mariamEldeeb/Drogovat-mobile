@@ -11,8 +11,8 @@ class AppCubit extends Cubit<AppStates>{
   static AppCubit get(context) => BlocProvider.of(context);
 
   List<Widget> pages = [
-    ProfilesView(),
-    DrugsView(),
+    const ProfilesView(),
+    const DrugsView(),
   ];
 
   int selectedIndex = 0;

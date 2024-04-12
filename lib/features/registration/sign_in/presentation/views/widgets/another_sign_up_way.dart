@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../core/utils/assets.dart';
 
@@ -21,15 +20,27 @@ class AnotherWayToSignUp extends StatelessWidget {
     );
   }
 
-  Widget buildIconContainer({required String logo}){
+  Widget buildIconContainer({required String logo}) {
     return Container(
-      height: 40,
-      width: 40,
-      decoration: ShapeDecoration(
-          color: Colors.white,
-          shape: OvalBorder(),
+      padding: const EdgeInsets.all(10),
+      height: 45,
+      width: 45,
+      decoration: const ShapeDecoration(
+        color: Colors.white,
+        shape: OvalBorder(),
+        shadows: [
+          BoxShadow(
+            color: Color(0x6D0A0F22),
+            blurRadius: 3,
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+          ),
+        ],
       ),
-      child: SvgPicture.asset(logo),
+      child: Image.asset(
+        logo,
+        fit: BoxFit.fill,
+      ),
     );
   }
 }

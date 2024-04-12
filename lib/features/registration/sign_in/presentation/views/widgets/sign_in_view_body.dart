@@ -1,10 +1,9 @@
 import 'package:drogovat_mobile/core/functions/navigate.dart';
-import 'package:drogovat_mobile/core/utils/colors.dart';
+import 'package:drogovat_mobile/core/utils/assets.dart';
 import 'package:drogovat_mobile/core/utils/constants.dart';
-import 'package:drogovat_mobile/core/widgets/custom_btn.dart';
-import 'package:drogovat_mobile/features/monitor/presentation/views/monitor_view.dart';
-import 'package:drogovat_mobile/features/registration/sign_in/manager/sign_in_cubit.dart';
-import 'package:drogovat_mobile/features/registration/sign_in/manager/sign_in_state.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/views/initial_view.dart';
+import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/build_check_row.dart';
+import 'package:drogovat_mobile/features/registration/widgets/large_btn.dart';
 import 'package:drogovat_mobile/features/registration/sign_up/presentation/views/sign_up_view.dart';
 import 'package:drogovat_mobile/features/registration/widgets/build_header.dart';
 import 'package:drogovat_mobile/features/registration/widgets/custom_rich_text.dart';
@@ -12,7 +11,9 @@ import 'package:drogovat_mobile/features/registration/widgets/custom_text_field.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../../manager/sign_in_cubit.dart';
+import '../../../manager/sign_in_state.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -28,14 +29,14 @@ class SignInViewBody extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
-              RegisHeader(
+              const RegisHeader(
                 title: 'Sign In',
               ),
-              SizedBox(height: 90),
+              const SizedBox(height: 90),
               CustomTextField(
                 hintText: 'Email',
                 textInputType: TextInputType.emailAddress,
-                prefixIcon: FontAwesomeIcons.user,
+                prefixIcon: personIcon,
                 controller: cubit.emailController,
                 isPassword: false,
                 validate: (value) {
@@ -47,10 +48,10 @@ class SignInViewBody extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextField(
                 hintText: 'Password',
-                prefixIcon: FontAwesomeIcons.userLock,
+                prefixIcon: lockIcon,
                 suffixIcon: cubit.suffixPassIcon,
                 controller: cubit.passwordController,
                 isPassword: cubit.isPassword,
@@ -58,39 +59,25 @@ class SignInViewBody extends StatelessWidget {
                   cubit.changePasswordVisibility();
                 },
               ),
-              SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.only(left: 35, right: 35),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Forget Password?',
-                      style: TextStyle(
-                        color: hintTextColor,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 40),
+              const SizedBox(height: 30),
+              const CheckRow(),
+              const SizedBox(height: 40),
               LargeButton(
                 text: 'Sign In',
                 onTap: () {
                   if (formKey.currentState!.validate()) {
-                    navigateTo(() => MonitorView());
+                    navigateTo(const InitialView());
                   }
                 },
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 30),
                 child: MyCustomRichText(
                   firstText: 'Don\'t have an account?',
                   secondText: 'SIGN UP',
                   onTap: () {
-                    navigateOffTo(SignUpView());
+                    navigateOffTo(const SignUpView());
                   },
                 ),
               ),

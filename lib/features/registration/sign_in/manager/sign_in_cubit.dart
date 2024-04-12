@@ -1,4 +1,4 @@
-import 'package:drogovat_mobile/features/registration/manager/sign_in_cubit/sign_in_state.dart';
+import 'package:drogovat_mobile/features/registration/sign_in/manager/sign_in_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

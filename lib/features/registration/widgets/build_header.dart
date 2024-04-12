@@ -12,12 +12,9 @@ class RegisHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SvgPicture.asset(
           width: MediaQuery.of(context).size.width,
-          child: SvgPicture.asset(
-            RegisAppBar,
-            fit: BoxFit.cover,
-          ),
+          regisAppBar,
         ),
         Positioned(
           top: 35,
@@ -25,15 +22,14 @@ class RegisHeader extends StatelessWidget {
           child: Column(
             children: [
               SvgPicture.asset(
-                drugIcon,
+                drugSign,
                 width: 52,
                 height: 62,
-                fit: BoxFit.contain,
               ),
-              SizedBox(height: 18,),
+              const SizedBox(height: 18,),
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 28,
                   color: Colors.white,
                 ),

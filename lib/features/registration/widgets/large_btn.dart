@@ -16,10 +16,10 @@ class LargeButton extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          gradient: LinearGradient(
-            begin: Alignment(-1.00, 0.00),
+          gradient: const LinearGradient(
+            begin: Alignment(-0.3, 1.00),
             end: Alignment(1, 0),
-            colors: [Color(0xFF0E6ABF), Color(0xFF0E6ABF), Color(0xFF37C3CC)],
+            colors: [Color(0xFF37C3CC), Color(0xFF0E6ABF), Color(0xFF0E6ABF)],
           ),
         ),
         child: Row(
@@ -27,12 +27,12 @@ class LargeButton extends StatelessWidget {
           children: [
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 22,
               ),
             ),
-            Icon(
+            const Icon(
               FontAwesomeIcons.arrowRight,
               color: Colors.white,
               size: 28,

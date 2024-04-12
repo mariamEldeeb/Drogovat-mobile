@@ -10,9 +10,9 @@ class NextDoseAmount extends StatelessWidget {
       height: 36,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-        color: Color(0xffE5E0E0),
+        color: const Color(0xffE5E0E0),
       ),
-      child: Center(
+      child: const Center(
         child: Text(
           '25 ml',
           style: TextStyle(

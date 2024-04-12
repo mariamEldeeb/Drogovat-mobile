@@ -1,16 +1,19 @@
-import 'package:drogovat_mobile/features/main_page/presentation/views/widgets/custom_bottom_nav_bar.dart';
-import 'package:drogovat_mobile/features/main_page/presentation/views/widgets/custom_floating_action_btn.dart';
+import 'package:drogovat_mobile/core/widgets/custom_app_bar.dart';
+import 'package:drogovat_mobile/core/widgets/my_nav_drawer.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/views/widgets/custom_bottom_nav_bar.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/views/widgets/custom_floating_action_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../manager/app_cubit/app_cubit.dart';
 import '../manager/app_cubit/app_status.dart';
 
-class MainView extends StatelessWidget {
-  const MainView({super.key});
+class InitialView extends StatelessWidget {
+  const InitialView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var scaffoldKey = GlobalKey<ScaffoldState>();
     var cubit = AppCubit.get(context);
 
     return SafeArea(
@@ -18,11 +21,18 @@ class MainView extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+            key: scaffoldKey,
+            resizeToAvoidBottomInset: false,
+            drawer: const MyNavigationDrawer(),
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(kToolbarHeight + 20),
+              child: CustomAppBar(sKey: scaffoldKey),
+            ),
             body: cubit.pages[cubit.selectedIndex],
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
-            floatingActionButton: CustomFloatingActionBtn(),
-            bottomNavigationBar: CustomBottomNavBar(),
+            floatingActionButton: const CustomFloatingActionBtn(),
+            bottomNavigationBar: const CustomBottomNavBar(),
           );
         },
       ),

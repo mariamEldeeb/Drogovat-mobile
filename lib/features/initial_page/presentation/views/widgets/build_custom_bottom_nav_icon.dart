@@ -27,25 +27,25 @@ class CustomBottomNavIcon extends StatelessWidget {
           isTapped
               ? SvgPicture.asset(
                   icon,
-                  height: 45,
-                  width: 45,
-                  color: iconTappedColor,
+                  height: 40,
+                  width: 40,
+                  colorFilter: ColorFilter.mode(iconTappedColor, BlendMode.srcIn),
                 )
               : SvgPicture.asset(
                   icon,
-                  height: 45,
-                  width: 45,
+                  height: 40,
+                  width: 40,
                   fit: BoxFit.contain,
                 ),
           isTapped
               ? Text(
                   label,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 19,
                   ),
                 )
-              : SizedBox(),
+              : const SizedBox(),
         ],
       ),
     );
