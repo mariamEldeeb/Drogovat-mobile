@@ -11,13 +11,20 @@ class TimeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 11,//80,
+      height: MediaQuery.of(context).size.height / 11,
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.only(left: 10,right: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5),
+          boxShadow: [
+            const BoxShadow(
+              color: Color(0x6D0A0F22),
+              blurRadius: 3,
+              offset: Offset(0, 4),
+              spreadRadius: 0,
+            ),
+          ]),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

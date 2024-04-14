@@ -48,13 +48,15 @@ class DrugsListViewItem extends StatelessWidget {
     return Container(
           width: 120,
           height: 120,
-          padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
             color: Color(0xffBEBEBE),
             shape: BoxShape.circle,
           ),
-          child: Image.asset(
-            drugs[index].image,
+          child: Transform.scale(
+            scale: 85/100,
+            child: Image.asset(
+              drugs[index].image,
+            ),
           ),
         );
   }

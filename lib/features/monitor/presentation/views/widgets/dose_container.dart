@@ -10,12 +10,20 @@ class DoseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height / 5,
+      height: MediaQuery.of(context).size.height / 4.5,
       margin: const EdgeInsets.only(left: 10, right: 10),
       padding: const EdgeInsets.only(left: 10, right: 15, top: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Colors.white,
+        boxShadow: [
+          const BoxShadow(
+            color: Color(0x6D0A0F22),
+            blurRadius: 3,
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+          ),
+        ],
       ),
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

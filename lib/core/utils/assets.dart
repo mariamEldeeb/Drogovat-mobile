@@ -3,13 +3,13 @@ const String googleLogo = 'assets/icons/google_logo.png';
 const String microsoftLogo = 'assets/icons/microsoft_logo.png';
 const String appleLogo = 'assets/icons/apple_logo.png';
 
-const String BPIcon = 'assets/icons/BP_icon.svg';
-const String CO2Icon = 'assets/icons/CO2_icon.svg';
-const String electrocardiogramIcon = 'assets/icons/Electrocardiogram_icon.svg';
-const String heartIcon = 'assets/icons/heart_icon.svg';
-const String OSIcon = 'assets/icons/OS_icon.svg';
-const String RRIcon = 'assets/icons/RR_icon.svg';
-const String TIcon = 'assets/icons/T_icon.svg';
+const String BPIcon = 'assets/icons/BP_icon.png';
+const String CO2Icon = 'assets/icons/CO2_icon.png';
+const String electrocardiogramIcon = 'assets/icons/Electrocardiogram_icon.png';
+const String heartIcon = 'assets/icons/heart_icon.png';
+const String OSIcon = 'assets/icons/OS_icon.png';
+const String RRIcon = 'assets/icons/RR_icon.png';
+const String TIcon = 'assets/icons/T_icon.png';
 
 const String drugSign = 'assets/icons/drug_icon.svg';
 const String personIcon = 'assets/icons/person_icon.svg';

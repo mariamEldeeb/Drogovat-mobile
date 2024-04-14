@@ -11,21 +11,16 @@ class MonitorViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        NameHeader(
-          name: 'Mariam Mohamed abdelaziz Eldeeb',
-          onTap: (){
-            navigateTo(const ProfilesView());
-          },
-        ),
-        const SizedBox(height: 10),
-        const TimeContainer(),
-        const SizedBox(height: 15),
-        const VitalSignContainer(),
-        const SizedBox(height: 15),
-        const DoseContainer(),
-      ],
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TimeContainer(),
+          VitalSignContainer(),
+          DoseContainer(),
+        ],
+      ),
     );
   }
 }

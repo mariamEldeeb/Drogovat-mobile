@@ -31,16 +31,14 @@ class DigitalNumberContainer extends StatelessWidget {
       ),
     );
   }
-
   List<DigitalNumWithBG> createNumberTime(int numTime) {
     final parsedNumTime = numTime % 60;
     final bool isNumberTwoDigits = parsedNumTime.toString().length == 2;
     final int firstDigit =
-        isNumberTwoDigits ? int.parse(parsedNumTime.toString()[0]) : 0;
+    isNumberTwoDigits ? int.parse(parsedNumTime.toString()[0]) : 0;
     final int secondDigit = isNumberTwoDigits
         ? int.parse(parsedNumTime.toString()[1])
         : parsedNumTime;
-
     return [
       DigitalNumWithBG(
         value: firstDigit,

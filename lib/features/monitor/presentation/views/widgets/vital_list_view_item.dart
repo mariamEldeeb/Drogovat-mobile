@@ -38,7 +38,7 @@ class VitalListViewItem extends StatelessWidget {
               fontSize: 25,
             ),
           ),
-          SvgPicture.asset(
+          Image.asset(
             vitals[index].icon,
             fit: BoxFit.contain,
             width: 25,

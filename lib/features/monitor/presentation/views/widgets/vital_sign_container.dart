@@ -15,6 +15,14 @@ class VitalSignContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Colors.white,
+        boxShadow: [
+          const BoxShadow(
+            color: Color(0x6D0A0F22),
+            blurRadius: 3,
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+          ),
+        ],
       ),
       child: ListView.separated(
         physics: const NeverScrollableScrollPhysics(),

@@ -5,6 +5,7 @@ import 'package:drogovat_mobile/features/initial_page/presentation/views/widgets
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/constants.dart';
 import '../manager/app_cubit/app_cubit.dart';
 import '../manager/app_cubit/app_status.dart';
 
@@ -13,7 +14,6 @@ class InitialView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var scaffoldKey = GlobalKey<ScaffoldState>();
     var cubit = AppCubit.get(context);
 
     return SafeArea(

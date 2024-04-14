@@ -1,5 +1,7 @@
+import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/utils/assets.dart';
 import 'package:drogovat_mobile/features/profile/data/models/patient_model.dart';
+import 'package:drogovat_mobile/features/profile/presentation/views/patient_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,28 +18,33 @@ class PatientListViewItem extends StatelessWidget {
     if (patients[index].status == 'Prepare') statusWordColor = Colors.green;
     if (patients[index].status == 'Active') statusWordColor = Colors.red;
 
-    return Container(
-      width: 304,
-      height: 88,
-      padding: const EdgeInsets.only(top: 6, bottom: 6, left: 13, right: 6),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          const BoxShadow(
-            color: Color(0x6D0A0F22),
-            blurRadius: 3,
-            offset: Offset(0, 4),
-            spreadRadius: 0,
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          buildLeadingContainer(),
-          const SizedBox(width: 13),
-          buildNameColumn(statusWordColor),
-        ],
+    return InkWell(
+      onTap: (){
+        navigateTo(PatientView(index: index,));
+      },
+      child: Container(
+        width: 304,
+        height: 88,
+        padding: const EdgeInsets.only(top: 6, bottom: 6, left: 13, right: 6),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            const BoxShadow(
+              color: Color(0x6D0A0F22),
+              blurRadius: 3,
+              offset: Offset(0, 4),
+              spreadRadius: 0,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            buildLeadingContainer(),
+            const SizedBox(width: 13),
+            buildNameColumn(statusWordColor),
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,8 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
+import 'package:drogovat_mobile/features/monitor/presentation/manager/cubit/monitor_cubit.dart';
+import 'package:drogovat_mobile/features/monitor/presentation/views/monitor_view.dart';
+import 'package:drogovat_mobile/features/profile/presentation/manager/profile_cubit.dart';
+import 'package:drogovat_mobile/features/profile/presentation/views/profiles_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -6,6 +10,7 @@ import 'package:get/get.dart';
 import 'core/utils/routes.dart';
 import 'features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'features/initial_page/presentation/views/initial_view.dart';
+import 'features/profile/presentation/views/widgets/patient_init_info.dart';
 import 'features/registration/sign_in/manager/sign_in_cubit.dart';
 import 'features/registration/sign_up/manager/sign_up_cubit.dart';
 
@@ -24,6 +29,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AppCubit()),
         BlocProvider(create: (context) => SignInCubit()),
         BlocProvider(create: (context) => SignUpCubit()),
+        BlocProvider(create: (context) => MonitorCubit()),
+        BlocProvider(create: (context) => ProfileCubit()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

@@ -3,14 +3,8 @@ import 'package:drogovat_mobile/features/profile/presentation/views/widgets/buil
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ProfilesView extends StatefulWidget {
+class ProfilesView extends StatelessWidget {
   const ProfilesView({super.key});
-
-  @override
-  State<ProfilesView> createState() => _ProfilesViewState();
-}
-
-class _ProfilesViewState extends State<ProfilesView> {
 
   @override
   Widget build(BuildContext context) {
