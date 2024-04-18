@@ -15,8 +15,9 @@ class BuildListPages extends StatelessWidget {
       child: Center(
         child: ListView.separated(
           shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
+          // physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.horizontal,
+          itemCount: 5,
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
@@ -33,7 +34,6 @@ class BuildListPages extends StatelessWidget {
           separatorBuilder: (context, index) {
             return const SizedBox(width: 40);
           },
-          itemCount: 4,
         ),
       ),
     );

@@ -1,13 +1,13 @@
 import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:drogovat_mobile/core/widgets/custom_dark_blue_app_bar.dart';
-import 'package:drogovat_mobile/features/profile/data/models/patient_model.dart';
-import 'package:drogovat_mobile/features/profile/presentation/manager/profile_cubit.dart';
-import 'package:drogovat_mobile/features/profile/presentation/manager/profile_state.dart';
-import 'package:drogovat_mobile/features/profile/presentation/views/widgets/patient_init_info.dart';
+import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/patient_init_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/my_nav_drawer.dart';
+import '../../data/models/patient_model.dart';
+import '../manager/patients_cubit.dart';
+import '../manager/patients_state.dart';
 
 class PatientView extends StatelessWidget {
   const PatientView({super.key, required this.index});
@@ -16,10 +16,10 @@ class PatientView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = ProfileCubit.get(context);
+    var cubit = PatientsCubit.get(context);
 
     return SafeArea(
-      child: BlocConsumer<ProfileCubit, ProfileStates>(
+      child: BlocConsumer<PatientsCubit, PatientsStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
@@ -31,7 +31,7 @@ class PatientView extends StatelessWidget {
                 name: patients[index].name,
               ),
             ),
-            body: PatientInitInfo(index: index,),
+            body: PatientInitInfo(index: index),
           );
         },
       ),

@@ -1,7 +1,7 @@
 import 'package:drogovat_mobile/core/widgets/custom_app_bar.dart';
 import 'package:drogovat_mobile/core/widgets/my_nav_drawer.dart';
-import 'package:drogovat_mobile/features/initial_page/presentation/views/widgets/custom_bottom_nav_bar.dart';
-import 'package:drogovat_mobile/features/initial_page/presentation/views/widgets/custom_floating_action_btn.dart';
+import 'package:drogovat_mobile/features/patients/presentation/views/widgets/custom_bottom_nav_bar.dart';
+import 'package:drogovat_mobile/features/patients/presentation/views/widgets/custom_floating_action_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
