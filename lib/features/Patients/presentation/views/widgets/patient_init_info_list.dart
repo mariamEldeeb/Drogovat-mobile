@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Build2Araf extends StatelessWidget {
-  const Build2Araf({super.key});
+class PatientInitInfoLiat extends StatelessWidget {
+  const PatientInitInfoLiat({super.key});
 
   @override
   Widget build(BuildContext context) {
