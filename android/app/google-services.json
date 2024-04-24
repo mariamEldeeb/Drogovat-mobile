@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "348577587898",
+    "project_id": "drogovat-57925",
+    "storage_bucket": "drogovat-57925.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348577587898:android:3f5f050144126069a79883",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsE-rna1JfN0BBwMn2fGK0eVXSlkU1TeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348577587898:android:14e084df513b4541a79883",
+        "android_client_info": {
+          "package_name": "com.drogovat.drogovat_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsE-rna1JfN0BBwMn2fGK0eVXSlkU1TeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

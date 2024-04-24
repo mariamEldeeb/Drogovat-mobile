@@ -1,5 +1,5 @@
-class ProfileStates {}
+class PatientsStates {}
 
-final class ProfileInitialState extends ProfileStates {}
+final class PatientsInitialState extends PatientsStates {}
 
-final class ChangeBottomPageIndexState extends ProfileStates {}
+final class ChangeBottomPageIndexState extends PatientsStates {}

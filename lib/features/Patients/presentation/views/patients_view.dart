@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../data/models/patient_model.dart';
 
-class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
+class PatientsView extends StatelessWidget {
+  const PatientsView({super.key});
 
   @override
   Widget build(BuildContext context) {

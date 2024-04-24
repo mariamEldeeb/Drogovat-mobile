@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/functions/navigate.dart';
-import '../../manager/profile_cubit.dart';
+import '../../manager/patients_cubit.dart';
 import 'list_view_of_pages_item.dart';
 
 class BuildListPages extends StatelessWidget {
@@ -21,13 +21,13 @@ class BuildListPages extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                ProfileCubit.get(context).changeBottomPageIndex(index);
-                navigateTo(ProfileCubit.get(context).patientInfoPages[ProfileCubit.get(context).selectedBottomPageIndex]);
+                PatientsCubit.get(context).changeBottomPageIndex(index);
+                navigateTo(PatientsCubit.get(context).patientInfoPages[PatientsCubit.get(context).selectedBottomPageIndex]);
               },
               child: ListViewOfPagesItem(
                 index: index,
                 isSelected:
-                ProfileCubit.get(context).selectedBottomPageIndex == index,
+                PatientsCubit.get(context).selectedBottomPageIndex == index,
               ),
             );
           },

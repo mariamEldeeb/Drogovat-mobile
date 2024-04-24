@@ -1,33 +1,28 @@
 import 'package:flutter/material.dart';
 
+import '../../features/drugs/data/models/drug_model.dart';
+
 class DrugImageContainer extends StatelessWidget {
   const DrugImageContainer({
     super.key,
-    required this.bgColor,
-    required this.imagePath,
+    required this.index, required this.width, required this.height,
   });
 
-  final Color bgColor;
-  final String imagePath;
+  final int index;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
-      height: 250,
-      color: bgColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image.asset(imagePath),
-          const Text(
-            'Cetacaine',
-            style: TextStyle(
-              color: Color(0xff9C0000),
-              fontSize: 20,
-            ),
-          ),
-        ],
+      width: width,
+      height: height,
+      decoration: const BoxDecoration(
+        color: Color(0xffF2F1F1),
+        shape: BoxShape.circle,
+      ),
+      child: Image.asset(
+        drugs[index].image,
       ),
     );
   }

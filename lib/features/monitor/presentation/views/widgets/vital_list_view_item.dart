@@ -15,7 +15,7 @@ class VitalListViewItem extends StatelessWidget {
       width: 200,
       padding: const EdgeInsets.only(left: 20,right: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         border: Border(
             bottom: BorderSide(
               color: vitals[index].vitalTextColor,

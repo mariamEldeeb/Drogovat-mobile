@@ -1,9 +1,10 @@
 import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/utils/assets.dart';
-import 'package:drogovat_mobile/features/profile/data/models/patient_model.dart';
-import 'package:drogovat_mobile/features/profile/presentation/views/patient_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../data/models/patient_model.dart';
+import '../patient_profile_view.dart';
 
 class PatientListViewItem extends StatelessWidget {
   PatientListViewItem({super.key, required this.index});
@@ -20,7 +21,7 @@ class PatientListViewItem extends StatelessWidget {
 
     return InkWell(
       onTap: (){
-        navigateTo(PatientView(index: index,));
+        navigateTo(const PatientProfileView());
       },
       child: Container(
         width: 304,
