@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -29,10 +30,7 @@ class RegisHeader extends StatelessWidget {
               const SizedBox(height: 18,),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 28,
-                  color: Colors.white,
-                ),
+                style: Styles.textStyle28,
               )
             ],
           ),

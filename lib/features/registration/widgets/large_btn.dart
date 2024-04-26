@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -27,10 +28,7 @@ class LargeButton extends StatelessWidget {
           children: [
             Text(
               text,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 22,
-              ),
+              style: Styles.textStyle22.copyWith(color: Colors.black),
             ),
             const Icon(
               FontAwesomeIcons.arrowRight,

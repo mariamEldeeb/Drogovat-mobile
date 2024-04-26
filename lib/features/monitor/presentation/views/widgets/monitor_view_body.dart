@@ -1,5 +1,3 @@
-import 'package:drogovat_mobile/core/functions/navigate.dart';
-import 'package:drogovat_mobile/core/widgets/name_header.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/dose_container.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/time_container.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/vital_sign_container.dart';

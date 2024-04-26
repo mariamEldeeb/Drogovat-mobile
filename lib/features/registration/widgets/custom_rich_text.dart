@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
@@ -21,19 +22,14 @@ class MyCustomRichText extends StatelessWidget {
       children: [
         Text(
           firstText,
-          style: TextStyle(
-            fontSize: 16,
-            color: hintTextColor,
-          ),
+          style: Styles.textStyle16,
         ),
         const SizedBox(width: 15),
         InkWell(
           onTap: onTap,
           child: Text(
             secondText,
-            style: const TextStyle(
-              decoration: TextDecoration.underline,
-              fontSize: 17,
+            style: Styles.textStyle17.copyWith(
               fontWeight: FontWeight.w900,
               color: darkBlueColor,
             ),

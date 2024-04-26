@@ -1,12 +1,13 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
+import 'package:drogovat_mobile/core/utils/styles.dart';
+import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/custom_tab_bar.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/patient_dose_info.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/patient_drug_info.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/patient_init_info.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/patient_personal_info.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/patient_vital_sign_info.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/widgets/my_nav_drawer.dart';
+import 'package:get/get.dart';
 
 class PatientProfileView extends StatelessWidget {
   const PatientProfileView({super.key});
@@ -17,77 +18,48 @@ class PatientProfileView extends StatelessWidget {
       child: DefaultTabController(
         length: 5,
         child: Scaffold(
-          drawer: const MyNavigationDrawer(),
           appBar: AppBar(
-            title: const Text(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios_rounded),
+              onPressed: () {
+                Get.back();
+              },
+            ),
+            title: Text(
               'Mariam Mohamed Eldeeb',
-              style: TextStyle(
+              style: Styles.textStyle20.copyWith(
                 overflow: TextOverflow.ellipsis,
-                color: Colors.white,
-                fontSize: 20,
               ),
             ),
             backgroundColor: darkBlueColor,
             bottom: const TabBar(
+              labelPadding: EdgeInsets.zero,
+              indicatorColor: Colors.white,
+              indicatorWeight: 3,
               tabs: [
-                Tab(
-                  icon: Icon(
-                    Icons.home_filled,
-                  ),
-                  child: Text(
-                    'Info',
-                    style: TextStyle(fontSize: 15),
-                    textAlign: TextAlign.center,
-                  ),
+                CustomTabBar(
+                  icon: Icons.home_filled,
+                  text: 'Info',
                 ),
-                Tab(
-                  icon: Icon(Icons.person),
-                  child: Text(
-                    'Personal',
-                    style: TextStyle(fontSize: 12),
-                    textAlign: TextAlign.center,
-                  ),
+                CustomTabBar(
+                  icon: Icons.person,
+                  text: 'Personal',
                 ),
-                Tab(
-                  icon: Icon(Icons.monitor_heart_rounded),
-                  child: Text(
-                    'Vitals',
-                    style: TextStyle(fontSize: 15),
-                    textAlign: TextAlign.center,
-                  ),
+                CustomTabBar(
+                  icon: Icons.monitor_heart_rounded,
+                  text: 'Vitals',
                 ),
-                Tab(
-                  icon: Icon(Icons.medication_rounded),
-                  child: Text(
-                    'Doses',
-                    style: TextStyle(fontSize: 15),
-                    textAlign: TextAlign.center,
-                  ),
+                CustomTabBar(
+                  icon: Icons.medication_rounded,
+                  text: 'Doses',
                 ),
-                Tab(
-                  icon: Icon(Icons.medical_services),
-                  child: Text(
-                    'Drug',
-                    style: TextStyle(fontSize: 15),
-                    textAlign: TextAlign.center,
-                  ),
+                CustomTabBar(
+                  icon: Icons.medical_services,
+                  text: 'Drug',
                 ),
               ],
             ),
-            actions: [
-              const Padding(
-                padding: EdgeInsets.only(left: 15),
-                child: Icon(Icons.arrow_back_ios_rounded),
-              )
-            ],
           ),
-          // PreferredSize(
-          //   preferredSize: const Size.fromHeight(kToolbarHeight + 30),
-          //   child: CustomDarkBlueAppBar(
-          //     sKey: scaffoldKey,
-          //     name: patients[index].name,
-          //   ),
-          // ),
           body: const Padding(
             padding: EdgeInsets.only(top: 30, left: 25, right: 25, bottom: 20),
             child: TabBarView(

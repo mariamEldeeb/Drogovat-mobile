@@ -1,4 +1,4 @@
-import 'package:drogovat_mobile/core/utils/constants.dart';
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/features/Patients/data/models/patient_data_model.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/output_container.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +10,6 @@ class PatientPersonalInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text(
-          'Patient Information',
-          style: TextStyle(
-            fontSize: 25,
-          ),
-        ),
-        const SizedBox(height: 50),
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,
@@ -29,9 +22,7 @@ class PatientPersonalInfo extends StatelessWidget {
                     width: 115,
                     child: Text(
                       patientData[index].data,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
+                      style: Styles.textStyle18DarkBlue,
                     ),
                   ),
                   OutputContainer(text: patientData[index].value,width: 204,),

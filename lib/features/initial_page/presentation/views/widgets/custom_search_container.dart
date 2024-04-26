@@ -1,3 +1,5 @@
+import 'package:drogovat_mobile/core/utils/constants.dart';
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,14 +17,7 @@ class SearchContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
-        boxShadow: [
-          const BoxShadow(
-            color: Color(0x6D0A0F22),
-            blurRadius: 3,
-            offset: Offset(0, 4),
-            spreadRadius: 0,
-          ),
-        ],
+        boxShadow: containerShadow(),
       ),
       child: Row(
         children: [
@@ -34,16 +29,10 @@ class SearchContainer extends StatelessWidget {
           const SizedBox(width: 15),
           Expanded(
             child: TextFormField(
-              style: const TextStyle(
-                color: darkBlueColor,
-                fontSize: 20,
-              ),
+              style: Styles.textStyle20.copyWith(color: darkBlueColor),
               decoration: InputDecoration(
                 hintText: 'Patient name',
-                hintStyle: TextStyle(
-                  color: hintTextColor,
-                  fontSize: 18,
-                ),
+                hintStyle: Styles.textStyle18.copyWith(color: darkBlueColor.withOpacity(0.5)),
                 border: InputBorder.none,
               ),
               maxLines: 1,

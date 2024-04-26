@@ -1,14 +1,16 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BuildNavDrawerItem extends StatelessWidget {
   const BuildNavDrawerItem({
     super.key,
     required this.text,
-    required this.icon,
+    required this.icon, this.onTap,
   });
 
   final String text;
   final String icon;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +26,13 @@ class BuildNavDrawerItem extends StatelessWidget {
       child: ListTile(
         title: Text(
           text,
-          style: const TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-          ),
+          style: Styles.textStyle20,
         ),
         leading: Image.asset(
           icon,
           color: Colors.white,
         ),
-        onTap: () {},
+        onTap: onTap,
       ),
     );
   }

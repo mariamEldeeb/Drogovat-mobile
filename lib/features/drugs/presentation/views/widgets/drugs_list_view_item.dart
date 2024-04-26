@@ -1,4 +1,6 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
+import 'package:drogovat_mobile/core/utils/constants.dart';
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/core/widgets/drug_image_container.dart';
 import 'package:drogovat_mobile/features/drugs/data/models/drug_model.dart';
 import 'package:flutter/material.dart';
@@ -16,14 +18,7 @@ class DrugsListViewItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          const BoxShadow(
-            color: Color(0x6D0A0F22),
-            blurRadius: 3,
-            offset: Offset(0, 4),
-            spreadRadius: 0,
-          ),
-        ],
+        boxShadow: containerShadow(),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,10 +37,7 @@ class DrugsListViewItem extends StatelessWidget {
   Text buildDrugName() {
     return Text(
       drugs[index].name,
-      style: const TextStyle(
-        color: drugNameColor,
-        fontSize: 20,
-      ),
+      style: Styles.textStyle20.copyWith(color: drugNameColor),
     );
   }
 }

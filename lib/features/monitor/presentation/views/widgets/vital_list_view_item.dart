@@ -1,5 +1,5 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../data/models/vital_model.dart';
 
@@ -13,30 +13,25 @@ class VitalListViewItem extends StatelessWidget {
     return Container(
       height: 45,
       width: 200,
-      padding: const EdgeInsets.only(left: 20,right: 10),
+      padding: const EdgeInsets.only(left: 20, right: 10),
       decoration: BoxDecoration(
-        // color: Colors.white,
         border: Border(
-            bottom: BorderSide(
-              color: vitals[index].vitalTextColor,
-              width: 1,
-            )),
+          bottom: BorderSide(
+            color: vitals[index].vitalTextColor,
+            width: 1,
+          ),
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             vitals[index].vitalText,
-            style: TextStyle(
-              fontSize: 20,
-              color: vitals[index].vitalTextColor,
-            ),
+            style: Styles.textStyle20.copyWith(color: vitals[index].vitalTextColor),
           ),
           Text(
             vitals[index].vitalValue + ' ' + (vitals[index].unit ?? ''),
-            style: const TextStyle(
-              fontSize: 25,
-            ),
+            style: Styles.textStyle25,
           ),
           Image.asset(
             vitals[index].icon,

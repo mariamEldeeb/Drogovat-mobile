@@ -1,9 +1,8 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_cubit.dart';
 import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../core/utils/colors.dart';
 
 class CustomSwitch extends StatelessWidget {
   const CustomSwitch({super.key, required this.switchLabel});
@@ -32,10 +31,7 @@ class CustomSwitch extends StatelessWidget {
               ),
               Text(
                 switchLabel,
-                style: TextStyle(
-                  color: hintTextColor,
-                  fontSize: 16,
-                ),
+                style: Styles.textStyle16,
               ),
             ],
           ),

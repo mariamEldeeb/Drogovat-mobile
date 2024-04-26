@@ -23,13 +23,6 @@ class PatientDrugInfo extends StatelessWidget {
 
     return Column(
       children: [
-        const Text(
-          'Anesthesia',
-          style: TextStyle(
-            fontSize: 25,
-          ),
-        ),
-        const SizedBox(height: 40),
         const DrugImageContainer(
           index: 0,
           width: 194,

@@ -27,7 +27,7 @@ navigateOffTo(Widget page) {
 
 navigateOffAllTo(Widget page) {
   Get.offAll(
-    () => page,
+    page,
     duration: const Duration(milliseconds: 300),
     transition: Transition.fade,
   );

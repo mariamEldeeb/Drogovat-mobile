@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -6,7 +7,7 @@ class CustomBottomNavIcon extends StatelessWidget {
     super.key,
     required this.isTapped,
     required this.icon,
-    required this.iconTappedColor,
+    required this.iconOffColor,
     required this.label,
     required this.onTap,
   });
@@ -14,7 +15,7 @@ class CustomBottomNavIcon extends StatelessWidget {
   final void Function() onTap;
   final bool isTapped;
   final String icon;
-  final Color iconTappedColor;
+  final Color iconOffColor;
   final String label;
 
   @override
@@ -27,25 +28,23 @@ class CustomBottomNavIcon extends StatelessWidget {
           isTapped
               ? SvgPicture.asset(
                   icon,
-                  height: 40,
-                  width: 40,
-                  colorFilter: ColorFilter.mode(iconTappedColor, BlendMode.srcIn),
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.contain,
                 )
               : SvgPicture.asset(
                   icon,
-                  height: 40,
-                  width: 40,
+                  height: 35,
+                  width: 35,
                   fit: BoxFit.contain,
+                  colorFilter: ColorFilter.mode(iconOffColor, BlendMode.srcIn),
                 ),
           isTapped
-              ? Text(
-                  label,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 19,
-                  ),
-                )
-              : const SizedBox(),
+              ? const SizedBox(height: 5)
+              : Text(
+            label,
+            style: Styles.textStyle16.copyWith(color: Colors.white),
+          ),
         ],
       ),
     );

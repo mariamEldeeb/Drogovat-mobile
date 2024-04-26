@@ -18,7 +18,7 @@ const String personIconPng = 'assets/icons/person_icon.png';
 const String atIcon = 'assets/icons/at_icon.svg';
 const String phoneIcon = 'assets/icons/phone_icon.svg';
 const String lockIcon = 'assets/icons/lock_icon.svg';
-const String lockCheckIcon = 'assets/icons/lock_check_icon.svg';
+const String lockCheckIcon = 'assets/icons/lock_check_icons.svg';
 
 const String menuIcon = 'assets/icons/menu_icon.svg';
 

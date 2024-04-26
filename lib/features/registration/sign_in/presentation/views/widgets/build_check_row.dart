@@ -1,7 +1,6 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/features/registration/widgets/custom_switch.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../../core/utils/colors.dart';
 
 class CheckRow extends StatelessWidget {
   const CheckRow({super.key});
@@ -11,11 +10,12 @@ class CheckRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const CustomSwitch(switchLabel: 'Remember me',),
+        const CustomSwitch(
+          switchLabel: 'Remember me',
+        ),
         Text(
           'Forget Password?',
-          style: TextStyle(
-            color: hintTextColor,
+          style: Styles.textStyle16.copyWith(
             fontSize: 17,
             decoration: TextDecoration.underline,
           ),

@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/features/on_boarding/data/models/on_board_model.dart';
 import 'package:drogovat_mobile/features/on_boarding/presentation/views/widgets/build_board_item.dart';
 import 'package:drogovat_mobile/features/splash/presentation/views/widgets/small_dots.dart';
@@ -72,10 +73,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 },
                 child: const Text(
                   'Next',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
+                  style: Styles.textStyle20,
                 ),
               ),
               const SizedBox(width: 40),

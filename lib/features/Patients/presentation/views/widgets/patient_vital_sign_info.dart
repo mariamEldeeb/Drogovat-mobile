@@ -11,13 +11,6 @@ class PatientVitalSignInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text(
-          'Vital Signs',
-          style: TextStyle(
-            fontSize: 25,
-          ),
-        ),
-        const SizedBox(height: 40),
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: ListView.separated(

@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/features/on_boarding/data/models/on_board_model.dart';
 import 'package:flutter/material.dart';
 
@@ -14,10 +15,7 @@ class BuildBoardItem extends StatelessWidget {
       children: [
         const Text(
           'DROGOVAT',
-          style: TextStyle(
-            fontSize: 37,
-            color: Colors.white,
-          ),
+          style: Styles.textStyle37,
         ),
         SizedBox(height: MediaQuery.of(context).size.height / 10),
         Image.asset(
@@ -31,19 +29,11 @@ class BuildBoardItem extends StatelessWidget {
             children: [
               TextSpan(
                 text: words[0],
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontFamily: 'Imprima',
-                ),
+                style: Styles.textStyle20.copyWith(fontSize: 25),
               ),
               TextSpan(
                 text: model.description.replaceAll(words[0], ''),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: 'Imprima',
-                ),
+                style: Styles.textStyle20,
               ),
             ],
           ),

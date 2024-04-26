@@ -1,7 +1,8 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class PatientInitInfoLiat extends StatelessWidget {
-  const PatientInitInfoLiat({super.key});
+class PatientInitInfoList extends StatelessWidget {
+  const PatientInitInfoList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,7 @@ class PatientInitInfoLiat extends StatelessWidget {
           padding: const EdgeInsets.only(left: 25),
           child: const Text(
             'Open heart surgery',
-            style: TextStyle(
-              fontSize: 18,
-            ),
+            style: Styles.textStyle18DarkBlue,
           ),
         ),
         MyDivider(),
@@ -93,9 +92,7 @@ class PatientInitInfoLiat extends StatelessWidget {
           padding: const EdgeInsets.only(left: 25),
           child: const Text(
             'Dr. RASHA WAHDAN',
-            style: TextStyle(
-              fontSize: 18,
-            ),
+            style: Styles.textStyle18DarkBlue,
           ),
         ),
       ],

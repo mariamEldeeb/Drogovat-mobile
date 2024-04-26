@@ -15,7 +15,7 @@ class BuildProfileIconContainer extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
-          boxShadow: containerShadow()),
+          boxShadow: containerShadow(),),
       child: Transform.scale(
         scale: 35 / 100,
         child: SvgPicture.asset(
@@ -23,7 +23,6 @@ class BuildProfileIconContainer extends StatelessWidget {
           height: 15,
           fit: BoxFit.contain,
           personIcon,
-          // color: Colors.black,
           colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class SlidingText extends StatelessWidget {
@@ -15,13 +16,9 @@ class SlidingText extends StatelessWidget {
       builder: (context, _) {
         return SlideTransition(
           position: slidingAnimation,
-          child: const Text(
+          child: Text(
             'Automatic Anesthesia System',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-              fontFamily: 'MuseoModerno',
-            ),
+            style: Styles.textStyle18.copyWith(fontFamily: 'MuseoModerno',),
           ),
         );
       },

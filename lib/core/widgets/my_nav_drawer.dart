@@ -1,8 +1,12 @@
+import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/utils/colors.dart';
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/core/widgets/nav_drawer_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
+import '../../features/drawer_pages/account/presentation/views/account_view.dart';
 import '../utils/assets.dart';
 import 'build_nav_drawer_item.dart';
 
@@ -15,7 +19,7 @@ class MyNavigationDrawer extends StatelessWidget {
       backgroundColor: darkBlueColor,
       child: Padding(
         padding:
-            const EdgeInsets.only(top: 15, bottom: 60, right: 18, left: 18),
+            const EdgeInsets.only(top: 25, bottom: 60, right: 18, left: 18),
         child: Column(
           children: [
             Row(
@@ -24,10 +28,7 @@ class MyNavigationDrawer extends StatelessWidget {
                 const SizedBox(width: 18),
                 const Text(
                   'Dr. Rasha Wahdan',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
+                  style: Styles.textStyle20,
                 ),
               ],
             ),
@@ -39,6 +40,7 @@ class MyNavigationDrawer extends StatelessWidget {
                 return BuildNavDrawerItem(
                   text: drawerModel[index].label,
                   icon: drawerModel[index].icon,
+                  onTap: () => onSelect(index),
                 );
               },
               separatorBuilder: (context, index) {
@@ -46,9 +48,10 @@ class MyNavigationDrawer extends StatelessWidget {
               },
             ),
             const Spacer(),
-            const BuildNavDrawerItem(
+            BuildNavDrawerItem(
               text: 'About Drogovat',
               icon: infoIconPng,
+              onTap: () => onSelect(4),
             ),
           ],
         ),
@@ -68,5 +71,25 @@ class MyNavigationDrawer extends StatelessWidget {
         colorFilter: const ColorFilter.mode(darkBlueColor, BlendMode.srcIn),
       ),
     );
+  }
+
+  void onSelect(index){
+    switch(index){
+      case 0:
+        print('Language');
+        break;
+      case 1:
+        print('Patients');
+        break;
+      case 2:
+        navigateTo(const AccountView());
+        break;
+      case 3:
+        print('contact us');
+        break;
+      case 4:
+        print('About us');
+        break;
+    }
   }
 }

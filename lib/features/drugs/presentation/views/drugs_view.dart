@@ -15,7 +15,9 @@ class DrugsView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           itemCount: drugs.length,
           itemBuilder: (context, index) {
-            return DrugsListViewItem(index: index,);
+            return DrugsListViewItem(
+              index: index,
+            );
           },
           separatorBuilder: (context, index0) {
             return const SizedBox(height: 15);

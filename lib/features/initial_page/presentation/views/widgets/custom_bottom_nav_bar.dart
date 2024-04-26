@@ -28,14 +28,14 @@ class CustomBottomNavBar extends StatelessWidget {
               CustomBottomNavIcon(
                 onTap: () => cubit.changeIndex(0),
                 icon: personIcon,
-                iconTappedColor: Colors.white,
+                iconOffColor: Colors.white,
                 label: 'Patients',
                 isTapped: cubit.selectedIndex == 0,
               ),
               CustomBottomNavIcon(
                 onTap: () => cubit.changeIndex(1),
                 icon: drugSign,
-                iconTappedColor: Colors.white,
+                iconOffColor: Colors.white,
                 label: 'Drugs',
                 isTapped: cubit.selectedIndex == 1,
               ),

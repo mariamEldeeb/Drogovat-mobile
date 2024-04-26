@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/constants.dart';
@@ -21,9 +22,7 @@ class OutputContainer extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: const TextStyle(
-            fontSize: 20,
-          ),
+          style: Styles.textStyle20.copyWith(color: Colors.black),
         ),
       ),
     );

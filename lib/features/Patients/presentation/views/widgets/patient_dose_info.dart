@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/output_container.dart';
 import 'package:flutter/material.dart';
 
@@ -28,9 +29,7 @@ class PatientDoseInfo extends StatelessWidget {
       children: [
         const Text(
           'Doses',
-          style: TextStyle(
-            fontSize: 25,
-          ),
+          style: Styles.textStyle25,
         ),
         const SizedBox(height: 40),
         ListView.separated(
