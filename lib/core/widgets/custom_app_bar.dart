@@ -5,9 +5,10 @@ import '../../features/initial_page/presentation/views/widgets/custom_search_con
 import '../utils/assets.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.sKey});
+  const CustomAppBar({super.key, required this.sKey, required this.hintText});
 
   final GlobalKey<ScaffoldState> sKey;
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class CustomAppBar extends StatelessWidget {
             },
           ),
           const SizedBox(width: 20),
-          const SearchContainer(),
+          SearchContainer(hintText: hintText,),
         ],
       ),
     );

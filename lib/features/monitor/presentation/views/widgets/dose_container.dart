@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/build_dose_history.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/build_next_dose_amount_container.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/build_next_potion_container.dart';
@@ -16,14 +17,7 @@ class DoseContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Colors.white,
-        boxShadow: [
-          const BoxShadow(
-            color: Color(0x6D0A0F22),
-            blurRadius: 3,
-            offset: Offset(0, 4),
-            spreadRadius: 0,
-          ),
-        ],
+        // boxShadow: containerShadow(),
       ),
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

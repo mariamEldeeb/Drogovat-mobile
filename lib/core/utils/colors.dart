@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color backgroundColor = Color(0xff8B8B8B);
+const Color backgroundColor = Color(0xffE4E4E4);
 const Color darkBlueColor = Color(0xff0A0F22);
 const Color bottomNavColor = Color(0xffCDCDCD);
 const Color drugNameColor = Color(0xff9C0000);

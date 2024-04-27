@@ -15,7 +15,8 @@ class BuildProfileIconContainer extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
-          boxShadow: containerShadow(),),
+          // boxShadow: containerShadow(),
+        ),
       child: Transform.scale(
         scale: 35 / 100,
         child: SvgPicture.asset(

@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/date_time.dart';
@@ -17,14 +18,8 @@ class TimeContainer extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            const BoxShadow(
-              color: Color(0x6D0A0F22),
-              blurRadius: 3,
-              offset: Offset(0, 4),
-              spreadRadius: 0,
-            ),
-          ]),
+          // boxShadow: containerShadow(),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

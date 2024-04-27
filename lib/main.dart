@@ -1,5 +1,6 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/patients_view.dart';
+import 'package:drogovat_mobile/features/drawer_pages/account/presentation/views/account_view.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/manager/cubit/monitor_cubit.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/monitor_view.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/sign_in_view.dart';
@@ -31,21 +32,21 @@ void main() async{
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
 
-  Widget widget;
-  uId = CacheHelper.getData(key: 'uId');
-  if (uId != null) {
-    widget = const InitialView();
-  } else {
-    widget = const SignInView();
-  }
+  // Widget widget;
+  // uId = CacheHelper.getData(key: 'uId');
+  // if (uId != null) {
+  //   widget = const InitialView();
+  // } else {
+  //   widget = const SignInView();
+  // }
 
-  runApp(MyApp(screen: widget));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.screen});
+  const MyApp({super.key, });
 
-  final Widget screen;
+  // final Widget screen;
 
   @override
   Widget build(BuildContext context) {
@@ -61,13 +62,14 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Drogovat',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: darkBlueColor).copyWith(background: backgroundColor),
+          colorScheme: ColorScheme.fromSeed(seedColor: darkBlueColor),
+          scaffoldBackgroundColor: backgroundColor,
           useMaterial3: false,
           fontFamily: 'Imprima',
         ),
         initialRoute: '/',
         getPages: pages,
-        home: screen,
+        home: InitialView(),
       ),
     );
   }

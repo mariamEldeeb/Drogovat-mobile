@@ -26,7 +26,11 @@ class InitialView extends StatelessWidget {
             drawer: const MyNavigationDrawer(),
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(kToolbarHeight + 20),
-              child: CustomAppBar(sKey: scaffoldKey),
+              child: CustomAppBar(
+                sKey: scaffoldKey,
+                hintText:
+                    cubit.selectedIndex == 0 ? 'Patient name' : 'Drug Name',
+              ),
             ),
             body: cubit.pages[cubit.selectedIndex],
             floatingActionButtonLocation:

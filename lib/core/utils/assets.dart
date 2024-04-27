@@ -32,7 +32,6 @@ const String infoIcon = 'assets/icons/info_icon.svg';
 const String infoIconPng = 'assets/icons/info_icon.png';
 
 // images
-// const String drugImage = 'assets/images/drug_image.png';
 const String drug1Image = 'assets/images/drug1.png';
 const String drug2Image = 'assets/images/drug2.png';
 const String drug3Image = 'assets/images/drug3.png';
@@ -45,3 +44,4 @@ const String pageViewImage2Svg = 'assets/images/page_view2.svg';
 const String pageViewImage3 = 'assets/images/page_view3.png';
 const String pageViewImage3Svg = 'assets/images/page_view3.svg';
 const String regisAppBar = 'assets/images/regis_app_bar.svg';
+const String profileCover = 'assets/images/profile_bg.png';

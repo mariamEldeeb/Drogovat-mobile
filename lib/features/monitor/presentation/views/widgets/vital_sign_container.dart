@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:drogovat_mobile/features/monitor/data/models/vital_model.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/vital_list_view_item.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +16,7 @@ class VitalSignContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Colors.white,
-        boxShadow: [
-          const BoxShadow(
-            color: Color(0x6D0A0F22),
-            blurRadius: 3,
-            offset: Offset(0, 4),
-            spreadRadius: 0,
-          ),
-        ],
+        // boxShadow: containerShadow(),
       ),
       child: ListView.separated(
         physics: const NeverScrollableScrollPhysics(),

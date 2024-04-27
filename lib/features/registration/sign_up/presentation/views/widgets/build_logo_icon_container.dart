@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class BuildLogoIconContainer extends StatelessWidget {
@@ -14,14 +15,7 @@ class BuildLogoIconContainer extends StatelessWidget {
       decoration: const ShapeDecoration(
         color: Colors.white,
         shape: OvalBorder(),
-        shadows: [
-          BoxShadow(
-            color: Color(0x6D0A0F22),
-            blurRadius: 3,
-            offset: Offset(0, 4),
-            spreadRadius: 0,
-          ),
-        ],
+        // shadows: containerShadow(),
       ),
       child: Image.asset(
         logo,

@@ -18,7 +18,7 @@ class DrugsListViewItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: containerShadow(),
+        // boxShadow: containerShadow(),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

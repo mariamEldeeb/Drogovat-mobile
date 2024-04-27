@@ -40,7 +40,7 @@ class CustomTextField extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
-        boxShadow: containerShadow(),
+        // boxShadow: containerShadow(),
       ),
       child: Row(
         children: [
