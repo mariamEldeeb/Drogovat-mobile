@@ -28,8 +28,6 @@ class InitialView extends StatelessWidget {
               preferredSize: const Size.fromHeight(kToolbarHeight + 20),
               child: CustomAppBar(
                 sKey: scaffoldKey,
-                hintText:
-                    cubit.selectedIndex == 0 ? 'Patient name' : 'Drug Name',
               ),
             ),
             body: cubit.pages[cubit.selectedIndex],

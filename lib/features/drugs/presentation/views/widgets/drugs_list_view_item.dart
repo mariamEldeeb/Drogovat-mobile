@@ -3,6 +3,7 @@ import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/core/widgets/drug_image_container.dart';
 import 'package:drogovat_mobile/features/drugs/data/models/drug_model.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
 
 class DrugsListViewItem extends StatelessWidget {
@@ -28,15 +29,15 @@ class DrugsListViewItem extends StatelessWidget {
             width: 125,
             height: 125,
           ),
-          buildDrugName(),
+          buildDrugName(context),
         ],
       ),
     );
   }
 
-  Text buildDrugName() {
+  Text buildDrugName(context) {
     return Text(
-      drugs[index].name,
+      AppCubit.get(context).displayDrugList[index].name,
       style: Styles.textStyle20.copyWith(color: drugNameColor),
     );
   }

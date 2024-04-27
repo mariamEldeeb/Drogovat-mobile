@@ -8,6 +8,7 @@ import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/pat
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/patient_vital_sign_info.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconly/iconly.dart';
 
 class PatientProfileView extends StatelessWidget {
   const PatientProfileView({super.key});
@@ -38,11 +39,11 @@ class PatientProfileView extends StatelessWidget {
               indicatorWeight: 3,
               tabs: [
                 CustomTabBar(
-                  icon: Icons.home_filled,
+                  icon: IconlyBold.home,
                   text: 'Info',
                 ),
                 CustomTabBar(
-                  icon: Icons.person,
+                  icon: IconlyBold.profile,
                   text: 'Personal',
                 ),
                 CustomTabBar(
@@ -54,7 +55,7 @@ class PatientProfileView extends StatelessWidget {
                   text: 'Doses',
                 ),
                 CustomTabBar(
-                  icon: Icons.medical_services,
+                  icon: Icons.medical_services_rounded,
                   text: 'Drug',
                 ),
               ],

@@ -1,5 +1,4 @@
 import 'package:drogovat_mobile/core/functions/navigate.dart';
-import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../patient_profile_view.dart';

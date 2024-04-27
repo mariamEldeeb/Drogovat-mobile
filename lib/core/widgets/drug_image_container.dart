@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/drugs/data/models/drug_model.dart';
@@ -22,7 +23,7 @@ class DrugImageContainer extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: Image.asset(
-        drugs[index].image,
+        AppCubit.get(context).displayDrugList[index].image,
       ),
     );
   }

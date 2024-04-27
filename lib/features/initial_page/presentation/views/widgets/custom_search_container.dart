@@ -7,9 +7,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/colors.dart';
 
 class SearchContainer extends StatelessWidget {
-  const SearchContainer({super.key, required this.hintText});
+  const SearchContainer({
+    super.key,
+    required this.hintText,
+    this.onChanged,
+    this.onFieldSubmitted,
+  });
 
   final String hintText;
+  final Function(String)? onChanged;
+  final Function(String)? onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +42,13 @@ class SearchContainer extends StatelessWidget {
               style: Styles.textStyle20.copyWith(color: darkBlueColor),
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: Styles.textStyle18.copyWith(color: darkBlueColor.withOpacity(0.5)),
+                hintStyle: Styles.textStyle18
+                    .copyWith(color: darkBlueColor.withOpacity(0.5)),
                 border: InputBorder.none,
               ),
               maxLines: 1,
+              onChanged: onChanged,
+              onFieldSubmitted: onFieldSubmitted,
             ),
           ),
         ],

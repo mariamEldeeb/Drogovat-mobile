@@ -1,4 +1,3 @@
-import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/utils/colors.dart';
 import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/core/widgets/nav_drawer_model.dart';
@@ -73,8 +72,8 @@ class MyNavigationDrawer extends StatelessWidget {
     );
   }
 
-  void onSelect(index){
-    switch(index){
+  void onSelect(index) {
+    switch (index) {
       case 0:
         print('Language');
         break;
@@ -82,7 +81,12 @@ class MyNavigationDrawer extends StatelessWidget {
         print('Patients');
         break;
       case 2:
-        navigateTo(const AccountView());
+        Get.back();
+        Get.to(
+          () => const AccountView(),
+          transition: Transition.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+        );
         break;
       case 3:
         print('contact us');

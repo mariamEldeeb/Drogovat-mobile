@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/models/patient_model.dart';
@@ -19,7 +20,7 @@ class BuildNameColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          patients[index].name,
+          AppCubit.get(context).displayPatientList[index].name,
           style: const TextStyle(
             fontSize: 18,
             color: Colors.black,
@@ -27,7 +28,7 @@ class BuildNameColumn extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         Text(
-          patients[index].status,
+          AppCubit.get(context).displayPatientList[index].status,
           style: TextStyle(
             fontSize: 18,
             color: statusWordColor,
