@@ -1,4 +1,3 @@
-import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class BuildLogoIconContainer extends StatelessWidget {

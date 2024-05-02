@@ -15,26 +15,40 @@ class BuildNameColumn extends StatelessWidget {
     if (patients[index].status == 'Prepare') statusWordColor = Colors.deepOrange;
     if (patients[index].status == 'Active') statusWordColor = Colors.red;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppCubit.get(context).displayPatientList[index].name,
-          style: const TextStyle(
-            fontSize: 18,
-            color: Colors.black,
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppCubit.get(context).displayPatientList[index].name,
+            style: const TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+            ),
           ),
-        ),
-        const SizedBox(height: 5),
-        Text(
-          AppCubit.get(context).displayPatientList[index].status,
-          style: TextStyle(
-            fontSize: 18,
-            color: statusWordColor,
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppCubit.get(context).displayPatientList[index].status,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: statusWordColor,
+                ),
+              ),
+              Text(
+                AppCubit.get(context).displayPatientList[index].surgeryName,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

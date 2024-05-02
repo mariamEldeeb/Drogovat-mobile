@@ -19,46 +19,49 @@ class PatientProfileView extends StatelessWidget {
       child: DefaultTabController(
         length: 5,
         child: Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_ios_rounded),
-              onPressed: () {
-                Get.back();
-              },
-            ),
-            title: Text(
-              'Mariam Mohamed Eldeeb',
-              style: Styles.textStyle20.copyWith(
-                overflow: TextOverflow.ellipsis,
+          appBar:  PreferredSize(
+            preferredSize: const Size.fromHeight(kToolbarHeight + 70),
+            child: AppBar(
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back_ios_rounded),
+                onPressed: () {
+                  Get.back();
+                },
               ),
-            ),
-            backgroundColor: darkBlueColor,
-            bottom: const TabBar(
-              labelPadding: EdgeInsets.zero,
-              indicatorColor: Colors.white,
-              indicatorWeight: 3,
-              tabs: [
-                CustomTabBar(
-                  icon: IconlyBold.home,
-                  text: 'Info',
+              title: Text(
+                'Mariam Mohamed Eldeeb',
+                style: Styles.textStyle20.copyWith(
+                  overflow: TextOverflow.ellipsis,
                 ),
-                CustomTabBar(
-                  icon: IconlyBold.profile,
-                  text: 'Personal',
-                ),
-                CustomTabBar(
-                  icon: Icons.monitor_heart_rounded,
-                  text: 'Vitals',
-                ),
-                CustomTabBar(
-                  icon: Icons.medication_rounded,
-                  text: 'Doses',
-                ),
-                CustomTabBar(
-                  icon: Icons.medical_services_rounded,
-                  text: 'Drug',
-                ),
-              ],
+              ),
+              backgroundColor: darkBlueColor,
+              bottom: const TabBar(
+                labelPadding: EdgeInsets.zero,
+                indicatorColor: Colors.white,
+                indicatorWeight: 3,
+                tabs: [
+                  CustomTabBar(
+                    icon: IconlyBold.home,
+                    text: 'Info',
+                  ),
+                  CustomTabBar(
+                    icon: IconlyBold.profile,
+                    text: 'Personal',
+                  ),
+                  CustomTabBar(
+                    icon: Icons.monitor_heart_rounded,
+                    text: 'Vitals',
+                  ),
+                  CustomTabBar(
+                    icon: Icons.medication_rounded,
+                    text: 'Doses',
+                  ),
+                  CustomTabBar(
+                    icon: Icons.medical_services_rounded,
+                    text: 'Drug',
+                  ),
+                ],
+              ),
             ),
           ),
           body: const Padding(

@@ -1,8 +1,8 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
 import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/core/widgets/nav_drawer_model.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../features/drawer_pages/account/presentation/views/account_view.dart';
@@ -23,11 +23,11 @@ class MyNavigationDrawer extends StatelessWidget {
           children: [
             Row(
               children: [
-                buildCircleAvatar(),
+                buildCircleAvatar(context),
                 const SizedBox(width: 18),
-                const Text(
-                  'Dr. Rasha Wahdan',
-                  style: Styles.textStyle20,
+                Text(
+                  'Dr. ${AppCubit.get(context).uModel?.name}',
+                  style: Styles.textStyle22.copyWith(color: Colors.white),
                 ),
               ],
             ),
@@ -58,17 +58,27 @@ class MyNavigationDrawer extends StatelessWidget {
     );
   }
 
-  CircleAvatar buildCircleAvatar() {
-    return CircleAvatar(
-      backgroundColor: backgroundColor,
-      radius: 25,
-      child: SvgPicture.asset(
-        personIcon,
-        width: 25,
-        height: 25,
-        fit: BoxFit.fill,
-        colorFilter: const ColorFilter.mode(darkBlueColor, BlendMode.srcIn),
+  Widget buildCircleAvatar(context) {
+    return Container(
+      width: 65,
+      height: 65,
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: backgroundColor,
       ),
+      child: AppCubit.get(context).uModel?.image == null
+          ? Center(
+              child: Text(
+                AppCubit.get(context).uModel!.name![0].toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 40,
+                  color: darkBlueColor,
+                ),
+              ),
+            )
+          : Image.network(
+              AppCubit.get(context).uModel?.image ?? '',
+            ),
     );
   }
 

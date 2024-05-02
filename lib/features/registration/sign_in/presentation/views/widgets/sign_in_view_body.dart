@@ -4,6 +4,7 @@ import 'package:drogovat_mobile/core/functions/show_snackbar.dart';
 import 'package:drogovat_mobile/core/utils/assets.dart';
 import 'package:drogovat_mobile/core/utils/cache_helper.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/views/initial_view.dart';
+import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/another_sign_up_way.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/build_check_row.dart';
 import 'package:drogovat_mobile/features/registration/widgets/large_btn.dart';
 import 'package:drogovat_mobile/features/registration/sign_up/presentation/views/sign_up_view.dart';
@@ -16,8 +17,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../manager/sign_in_cubit.dart';
 import '../../../manager/sign_in_state.dart';
 
-class SignInViewBody extends StatelessWidget {
+class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
+
+  @override
+  State<SignInViewBody> createState() => _SignInViewBodyState();
+}
+
+class _SignInViewBodyState extends State<SignInViewBody> {
+
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +59,6 @@ class SignInViewBody extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        var emailController = TextEditingController();
-        var passwordController = TextEditingController();
         return Column(
           children: [
             const RegisHeader(title: 'Sign In'),
@@ -93,7 +108,6 @@ class SignInViewBody extends StatelessWidget {
                                 email: emailController.text,
                                 password: passwordController.text,
                               );
-                              // navigateTo(const InitialView());
                             }
                           },
                         );
@@ -105,8 +119,9 @@ class SignInViewBody extends StatelessWidget {
                       },
                     ),
                     const Spacer(),
+                    const ThirdParty(text: 'Or Sign in with'),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 30),
+                      padding: const EdgeInsets.only(bottom: 30,top: 15),
                       child: MyCustomRichText(
                         firstText: 'Don\'t have an account?',
                         secondText: 'SIGN UP',

@@ -5,9 +5,12 @@ import '../../../../../../core/utils/assets.dart';
 import '../../../../sign_up/presentation/views/widgets/build_logo_icon_container.dart';
 
 class ThirdParty extends StatelessWidget {
-  const ThirdParty({super.key, required this.text});
+  const ThirdParty({super.key, required this.text, this.googleOnTap, this.microsoftOnTap, this.appleOnTap});
 
   final String text;
+  final void Function()? googleOnTap;
+  final void Function()? microsoftOnTap;
+  final void Function()? appleOnTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,26 @@ class ThirdParty extends StatelessWidget {
           style: Styles.textStyle16,
         ),
         const SizedBox(height: 5),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            BuildLogoIconContainer(logo: googleLogo),
-            BuildLogoIconContainer(logo: microsoftLogo),
-            BuildLogoIconContainer(logo: appleLogo),
+            InkWell(
+              onTap: googleOnTap,
+                child: const BuildLogoIconContainer(
+              logo: googleLogo,
+            )),
+            InkWell(
+              onTap: microsoftOnTap,
+              child: const BuildLogoIconContainer(
+                logo: microsoftLogo,
+              ),
+            ),
+            InkWell(
+              onTap: appleOnTap,
+              child: const BuildLogoIconContainer(
+                logo: appleLogo,
+              ),
+            ),
           ],
         ),
       ],

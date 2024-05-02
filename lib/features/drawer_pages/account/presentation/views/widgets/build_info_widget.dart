@@ -7,9 +7,8 @@ import '../../../../../../core/utils/styles.dart';
 
 class BuildInfoWidget extends StatelessWidget {
   const BuildInfoWidget(
-      {super.key, required this.icon, required this.title, required this.text});
+      {super.key, required this.title, required this.text});
 
-  final IconData icon;
   final String title;
   final String text;
 
@@ -18,36 +17,20 @@ class BuildInfoWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                icon,
-                color: darkBlueColor,
-                size: 26,
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: Styles.textStyle20.copyWith(
-                        color: darkBlueColor,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      text,
-                      style: Styles.textStyle18DarkBlue,
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          Text(
+            title,
+            style: Styles.textStyle20.copyWith(
+              color: darkBlueColor.withOpacity(0.5),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            text,
+            style: Styles.textStyle20.copyWith(
+              color: darkBlueColor,
+            ),
           ),
           const MyDivider(
               padding: const EdgeInsets.only(top: 27, bottom: 17),

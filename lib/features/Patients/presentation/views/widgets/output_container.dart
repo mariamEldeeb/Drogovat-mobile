@@ -1,8 +1,6 @@
 import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/constants.dart';
-
 class OutputContainer extends StatelessWidget {
   const OutputContainer({super.key, required this.width, required this.text});
 

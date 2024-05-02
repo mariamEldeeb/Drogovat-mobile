@@ -6,11 +6,11 @@ class UserModel {
   String? image;
 
   UserModel({
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.userId,
-    required this.image,
+    this.name,
+    this.email,
+    this.phone,
+    this.userId,
+    this.image,
   });
 
   UserModel.fromJson(Map<String, dynamic> json){

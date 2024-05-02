@@ -1,6 +1,4 @@
-import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:drogovat_mobile/core/utils/styles.dart';
-import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

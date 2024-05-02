@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/constants.dart';
 
 class BuildProfileIconContainer extends StatelessWidget {
   const BuildProfileIconContainer({super.key});
@@ -12,7 +11,7 @@ class BuildProfileIconContainer extends StatelessWidget {
     return Container(
       width: 100,
       height: 100,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
           // boxShadow: containerShadow(),

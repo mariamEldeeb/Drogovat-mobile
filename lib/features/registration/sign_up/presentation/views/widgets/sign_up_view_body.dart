@@ -15,18 +15,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../widgets/build_header.dart';
 import '../../../../widgets/custom_text_field.dart';
 
-class SignUpViewBody extends StatelessWidget {
+class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
+
+  @override
+  State<SignUpViewBody> createState() => _SignUpViewBodyState();
+}
+
+class _SignUpViewBodyState extends State<SignUpViewBody> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+  TextEditingController confirmPassController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    phoneController.dispose();
+    emailController.dispose();
+    passController.dispose();
+    confirmPassController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     var cubit = SignUpCubit.get(context);
     var signUpFormKey = GlobalKey<FormState>();
-    TextEditingController nameController = TextEditingController();
-    TextEditingController phoneController = TextEditingController();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passController = TextEditingController();
-    TextEditingController confirmPassController = TextEditingController();
 
     return BlocConsumer<SignUpCubit, SignUpStates>(
       listener: (context, state) {
@@ -143,7 +159,6 @@ class SignUpViewBody extends StatelessWidget {
                                   phone: phoneController.text,
                                   password: passController.text,
                                 );
-                                // navigateTo(const InitialView());
                               } else if (cubit.isSwitchOn == false) {
                                 showSnackBar(
                                   title: 'Notice',

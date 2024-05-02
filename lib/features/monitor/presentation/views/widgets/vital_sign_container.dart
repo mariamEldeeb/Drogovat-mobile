@@ -1,4 +1,3 @@
-import 'package:drogovat_mobile/core/utils/constants.dart';
 import 'package:drogovat_mobile/features/monitor/data/models/vital_model.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/views/widgets/vital_list_view_item.dart';
 import 'package:flutter/material.dart';

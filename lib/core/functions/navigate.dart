@@ -9,6 +9,14 @@ void navigateTo(Widget page) {
   );
 }
 
+void navigateDownUpTo(Widget page) {
+  Get.to(
+    page,
+    duration: const Duration(milliseconds: 300),
+    transition: Transition.downToUp,
+  );
+}
+
 // navigateTo(Widget Function() page){
 //   Get.to(
 //       () => page,

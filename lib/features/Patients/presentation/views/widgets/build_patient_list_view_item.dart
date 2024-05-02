@@ -20,11 +20,10 @@ class PatientListViewItem extends StatelessWidget {
       child: Container(
         width: 304,
         height: 88,
-        padding: const EdgeInsets.only(top: 6, bottom: 6, left: 13, right: 6),
+        padding: const EdgeInsets.only(top: 6, bottom: 6, left: 13, right: 10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          // boxShadow: containerShadow(),
         ),
         child: Row(
           children: [

@@ -1,4 +1,3 @@
-import 'package:drogovat_mobile/features/drugs/data/models/drug_model.dart';
 import 'package:drogovat_mobile/features/drugs/presentation/views/widgets/drugs_list_view_item.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_status.dart';
