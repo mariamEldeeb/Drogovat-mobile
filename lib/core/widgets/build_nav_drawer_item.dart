@@ -5,7 +5,8 @@ class BuildNavDrawerItem extends StatelessWidget {
   const BuildNavDrawerItem({
     super.key,
     required this.text,
-    required this.icon, this.onTap,
+    required this.icon,
+    this.onTap,
   });
 
   final String text;
@@ -31,6 +32,8 @@ class BuildNavDrawerItem extends StatelessWidget {
         leading: Image.asset(
           icon,
           color: Colors.white,
+          height: 25,
+          width: 25,
         ),
         onTap: onTap,
       ),

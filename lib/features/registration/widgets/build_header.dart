@@ -27,7 +27,9 @@ class RegisHeader extends StatelessWidget {
                 width: 52,
                 height: 62,
               ),
-              const SizedBox(height: 18,),
+              const SizedBox(
+                height: 18,
+              ),
               Text(
                 title,
                 style: Styles.textStyle28,

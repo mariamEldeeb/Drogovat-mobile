@@ -7,7 +7,6 @@ class PatientDoseInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     List<String> doseData = [
       '10 ml',
       '10 ml',
@@ -37,12 +36,14 @@ class PatientDoseInfo extends StatelessWidget {
           itemCount: 6,
           itemBuilder: (context, index) {
             return OutputContainer(
-              width: double.infinity,
-              text: '${doseData[index]}                            ${doseTime[index]}',
+              label: '${doseData[index]}',
+              value: '${doseTime[index]}',
             );
-          }, separatorBuilder: (context, index) {
-          return const SizedBox(height: 20);
-        },),
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(height: 20);
+          },
+        ),
       ],
     );
   }

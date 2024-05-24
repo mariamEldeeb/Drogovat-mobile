@@ -19,7 +19,7 @@ class PatientProfileView extends StatelessWidget {
       child: DefaultTabController(
         length: 5,
         child: Scaffold(
-          appBar:  PreferredSize(
+          appBar: PreferredSize(
             preferredSize: const Size.fromHeight(kToolbarHeight + 70),
             child: AppBar(
               leading: IconButton(
@@ -45,7 +45,7 @@ class PatientProfileView extends StatelessWidget {
                     text: 'Info',
                   ),
                   CustomTabBar(
-                    icon: IconlyBold.profile,
+                    icon: Icons.person,
                     text: 'Personal',
                   ),
                   CustomTabBar(

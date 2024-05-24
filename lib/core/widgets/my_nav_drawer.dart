@@ -69,7 +69,7 @@ class MyNavigationDrawer extends StatelessWidget {
       child: AppCubit.get(context).uModel?.image == null
           ? Center(
               child: Text(
-                AppCubit.get(context).uModel!.name![0].toUpperCase(),
+                AppCubit.get(context).uModel?.name?[0].toUpperCase() ?? '',
                 style: const TextStyle(
                   fontSize: 40,
                   color: darkBlueColor,

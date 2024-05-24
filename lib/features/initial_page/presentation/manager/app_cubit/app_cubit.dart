@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:drogovat_mobile/features/Patients/data/models/patient_model.dart';
 import 'package:drogovat_mobile/features/drugs/data/models/drug_model.dart';
 import 'package:drogovat_mobile/features/drugs/presentation/views/drugs_view.dart';
 import 'package:drogovat_mobile/features/registration/data/models/user_model.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -22,7 +22,6 @@ class AppCubit extends Cubit<AppStates> {
   int selectedIndex = 0;
   void changeIndex(int currentIndex) {
     selectedIndex = currentIndex;
-    print(selectedIndex);
     emit(ChangeIndexState());
   }
 
@@ -31,43 +30,20 @@ class AppCubit extends Cubit<AppStates> {
     const DrugsView(),
   ];
 
-  // update patient search List
-  List<PatientModel> displayPatientList = List.from(patients);
-
-  void updatePatientList(String value) {
-    displayPatientList = patients
-        .where((element) =>
-            element.name.toLowerCase().contains(value.toLowerCase()))
-        .toList();
-    emit(UpdatePatientListState());
-  }
-
-  // update drug search List
-  List<DrugModel> displayDrugList = List.from(drugs);
-
-  void updateDrugList(String value) {
-    displayDrugList = drugs
-        .where((element) =>
-            element.name.toLowerCase().contains(value.toLowerCase()))
-        .toList();
-    emit(UpdateDrugListState());
-  }
-
   UserModel? uModel;
 
   void getUserData() {
     emit(GetUserDataLoadingState());
     FirebaseFirestore.instance
-        .collection('users')
+        .collection(userCollection)
         .doc(uId)
         .get()
         .then((value) {
-      uModel = UserModel.fromJson(value.data()!);
+      uModel = UserModel.fromJson(value.data());
       emit(GetUserDataSuccessState());
-    })
-        .catchError((error) {
+    }).catchError((error) {
       print(error.toString());
-      emit(GetUserDataErrorState(error));
+      emit(GetUserDataErrorState());
     });
   }
 
@@ -97,7 +73,6 @@ class AppCubit extends Cubit<AppStates> {
         .putFile(profileImage!)
         .then((value) {
       value.ref.getDownloadURL().then((value) {
-        // emit(UploadProfileImageSuccessState());
         updateUser(
           name: name,
           phone: phone,
@@ -129,7 +104,7 @@ class AppCubit extends Cubit<AppStates> {
     );
 
     FirebaseFirestore.instance
-        .collection('users')
+        .collection(userCollection)
         .doc(uId)
         .update(model.toMap())
         .then((value) {
@@ -138,5 +113,58 @@ class AppCubit extends Cubit<AppStates> {
       print(error.toString());
       emit(UserUpdateErrorState());
     });
+  }
+
+  List<DrugModel> drugs = [];
+  void getAllDrugs() {
+    if (drugs.isEmpty) {
+      FirebaseFirestore.instance.collection(drugCollection).get().then((value) {
+        value.docs.forEach((element) {
+          drugs.add(DrugModel.fromJson(element.data()));
+        });
+        emit(GetAllDrugsSuccessState());
+      }).catchError((error) {
+        print(error.toString());
+        emit(GetAllDrugsErrorState(error.toString()));
+      });
+    }
+  }
+
+  // update drug search List
+  List<DrugModel> displayDrugList = [];
+  void updateDrugList(String value) {
+    displayDrugList = drugs
+        .where((element) =>
+            element.drugName!.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    emit(UpdateDrugListState());
+  }
+
+  List<PatientModel> patients = [];
+  void getAllPatients() {
+    if (patients.isEmpty) {
+      FirebaseFirestore.instance
+          .collection(patientsCollection)
+          .get()
+          .then((value) {
+        value.docs.forEach((element) {
+          patients.add(PatientModel.fromJson(element.data()));
+        });
+        emit(GetAllPatientsSuccessState());
+      }).catchError((error) {
+        print(error.toString());
+        emit(GetAllPatientsErrorState(error.toString()));
+      });
+    }
+  }
+
+  // update patient search List
+  List<PatientModel> displayPatientList = [];
+  void updatePatientList(String value) {
+    displayPatientList = patients
+        .where((element) =>
+            element.patientName!.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    emit(UpdatePatientListState());
   }
 }

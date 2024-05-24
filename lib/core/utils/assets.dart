@@ -1,8 +1,9 @@
-// icons
+// logos
 const String googleLogo = 'assets/icons/google_logo.png';
 const String microsoftLogo = 'assets/icons/microsoft_logo.png';
 const String appleLogo = 'assets/icons/apple_logo.png';
 
+// vital sign
 const String BPIcon = 'assets/icons/BP_icon.png';
 const String CO2Icon = 'assets/icons/CO2_icon.png';
 const String electrocardiogramIcon = 'assets/icons/Electrocardiogram_icon.png';
@@ -11,19 +12,23 @@ const String OSIcon = 'assets/icons/OS_icon.png';
 const String RRIcon = 'assets/icons/RR_icon.png';
 const String TIcon = 'assets/icons/T_icon.png';
 
-const String drugSign = 'assets/icons/drug_icon.svg';
+// main icons
+const String drugSign = 'assets/icons/drug_sign.svg';
+const String drugIconPng = 'assets/icons/drug_icon.png';
 const String personIcon = 'assets/icons/person_icon.svg';
 const String personIconPng = 'assets/icons/person_icon.png';
+const String addPatientIconPng = 'assets/icons/add_patient_sign.png';
+const String addDrugIconPng = 'assets/icons/add_drug_sign.png';
 
 const String atIcon = 'assets/icons/at_icon.svg';
 const String phoneIcon = 'assets/icons/phone_icon.svg';
 const String lockIcon = 'assets/icons/lock_icon.svg';
 const String lockCheckIcon = 'assets/icons/lock_check_icons.svg';
 
+//  drawer icons
 const String menuIcon = 'assets/icons/menu_icon.svg';
-
 const String languageIcon = 'assets/icons/language_icon.svg';
-const String languageIconPng= 'assets/icons/language_icon.png';
+const String languageIconPng = 'assets/icons/language_icon.png';
 const String folderIcon = 'assets/icons/folder_icon.svg';
 const String folderIconPng = 'assets/icons/folder_icon.png';
 const String contactsUsIcon = 'assets/icons/contact_us_icon.svg';
@@ -33,8 +38,8 @@ const String infoIconPng = 'assets/icons/info_icon.png';
 
 // images
 const String drug1Image = 'assets/images/drug1.png';
-const String drug2Image = 'assets/images/drug2.png';
-const String drug3Image = 'assets/images/drug3.png';
+const String drug2Image = 'assets/images/drug3.png';
+const String drug3Image = 'assets/images/drug2.png';
 const String splashBG = 'assets/images/splash_bg.svg';
 const String logoName = 'assets/images/logo_name.svg';
 const String pageViewImage1 = 'assets/images/page_view1.png';

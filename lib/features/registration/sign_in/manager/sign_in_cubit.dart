@@ -37,6 +37,10 @@ class SignInCubit extends Cubit<SignInStates> {
           case 'invalid-email':
             errorMessage = 'Please, Enter a valid email address';
             break;
+          case 'email-already-in-use':
+            errorMessage =
+                'The email address is already in use by another account';
+            break;
           default:
             errorMessage = 'Login failed. Please try again';
         }

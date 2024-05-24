@@ -8,7 +8,9 @@ import '../../manager/app_cubit/app_status.dart';
 import 'build_custom_bottom_nav_icon.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({super.key,});
+  const CustomBottomNavBar({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +20,8 @@ class CustomBottomNavBar extends StatelessWidget {
       builder: (context, state) {
         return BottomAppBar(
           height: MediaQuery.of(context).size.height / 12,
-          padding: const EdgeInsets.only(left: 40, right: 40, top: 5),
-          notchMargin: 9,
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          notchMargin: 12,
           shape: const CircularNotchedRectangle(),
           color: darkBlueColor,
           child: Row(
@@ -27,16 +29,12 @@ class CustomBottomNavBar extends StatelessWidget {
             children: [
               CustomBottomNavIcon(
                 onTap: () => cubit.changeIndex(0),
-                icon: personIcon,
-                iconOffColor: Colors.white,
-                label: 'Patients',
+                icon: personIconPng,
                 isTapped: cubit.selectedIndex == 0,
               ),
               CustomBottomNavIcon(
                 onTap: () => cubit.changeIndex(1),
-                icon: drugSign,
-                iconOffColor: Colors.white,
-                label: 'Drugs',
+                icon: drugIconPng,
                 isTapped: cubit.selectedIndex == 1,
               ),
             ],

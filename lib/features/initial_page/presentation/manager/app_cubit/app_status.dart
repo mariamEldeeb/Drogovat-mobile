@@ -13,9 +13,9 @@ class GetUserDataLoadingState extends AppStates {}
 class GetUserDataSuccessState extends AppStates {}
 
 class GetUserDataErrorState extends AppStates {
-  final String errorMessage;
-
-  GetUserDataErrorState(this.errorMessage);
+  // final String errorMessage;
+  //
+  // GetUserDataErrorState(this.errorMessage);
 }
 
 class GetPatientDataLoadingState extends AppStates {}
@@ -37,3 +37,19 @@ class UserUpdateLoadingState extends AppStates {}
 class UploadProfileImageErrorState extends AppStates {}
 
 class UserUpdateErrorState extends AppStates {}
+
+class GetAllDrugsSuccessState extends AppStates {}
+
+class GetAllDrugsErrorState extends AppStates {
+  final String errorMessage;
+
+  GetAllDrugsErrorState(this.errorMessage);
+}
+
+class GetAllPatientsSuccessState extends AppStates {}
+
+class GetAllPatientsErrorState extends AppStates {
+  final String errorMessage;
+
+  GetAllPatientsErrorState(this.errorMessage);
+}

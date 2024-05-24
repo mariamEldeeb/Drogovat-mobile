@@ -7,7 +7,6 @@ class PatientDrugInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     List<String> drugDoseTime = [
       'Loading',
       'maintenance',
@@ -32,11 +31,13 @@ class PatientDrugInfo extends StatelessWidget {
         ListView.separated(
           shrinkWrap: true,
           itemCount: drugDoseTime.length,
-          itemBuilder: (context, index){
-            return OutputContainer(width: double.infinity, text:
-            '${drugDoseTime[index]}                   ${drugDoseValue[index]}');
+          itemBuilder: (context, index) {
+            return OutputContainer(
+              label: '${drugDoseTime[index]}',
+              value: '${drugDoseValue[index]}',
+            );
           },
-          separatorBuilder: (context, index){
+          separatorBuilder: (context, index) {
             return const SizedBox(height: 15);
           },
         ),

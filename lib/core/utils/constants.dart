@@ -12,3 +12,7 @@ List<BoxShadow> containerShadow() => [
     ];
 
 String? uId;
+
+String userCollection = 'users';
+String patientsCollection = 'patients';
+String drugCollection = 'drugs';

@@ -1,40 +1,86 @@
+import 'package:drogovat_mobile/core/functions/show_custom_dialog.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_status.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/utils/assets.dart';
 
 class CustomFloatingActionBtn extends StatelessWidget {
   const CustomFloatingActionBtn({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 78,
-      height: 78,
-      child: FloatingActionButton(
-        onPressed: () {},
-        child: Container(
-          width: 78,
-          height: 78,
-          decoration: const ShapeDecoration(
-            shape: const OvalBorder(),
-            gradient: LinearGradient(
-              begin: Alignment(0.00, -1.00),
-              end: Alignment(0, 1),
-              colors: [
-                Color(0xFF0E6ABF),
-                Color(0xFF0E6ABF),
-                Color(0xFF37C3CC),
+    return BlocBuilder<AppCubit, AppStates>(
+      builder: (context, state) {
+        return SizedBox(
+          width: 80,
+          height: 80,
+          child: FloatingActionButton(
+            onPressed: () {
+              AppCubit.get(context).selectedIndex == 0
+                  ? showCustomDialog(
+                      context: context,
+                      child: Container(
+                        width: double.infinity,
+                        height: 400,
+                        color: Colors.white,
+                        child: const Center(
+                          child: Text('Add patient'),
+                        ),
+                      ),
+                    )
+                  : showCustomDialog(
+                      context: context,
+                      child: Container(
+                        width: double.infinity,
+                        height: 400,
+                        color: Colors.white,
+                        child: const Center(
+                          child: Text('Add Drugs'),
+                        ),
+                      ),
+                    );
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: 80,
+                  height: 80,
+                  decoration: const ShapeDecoration(
+                    shape: const OvalBorder(),
+                    gradient: LinearGradient(
+                      begin: Alignment(0.00, -1.00),
+                      end: Alignment(0, 1),
+                      colors: [
+                        Color(0xFF35BECC),
+                        Color(0xFF0F6CC0),
+                      ],
+                    ),
+                  ),
+                ),
+                AppCubit.get(context).selectedIndex == 0
+                    ? Image.asset(
+                        width: 50,
+                        height: 50,
+                        addPatientIconPng,
+                        fit: BoxFit.contain,
+                      )
+                    : Image.asset(
+                        width: 50,
+                        height: 50,
+                        addDrugIconPng,
+                        fit: BoxFit.contain,
+                      ),
               ],
             ),
+            elevation: 0,
+            highlightElevation: 0,
+            backgroundColor: Colors.transparent,
           ),
-          child: const Icon(
-            Icons.add_rounded,
-            color: Colors.white,
-            size: 55,
-          ),
-        ),
-        elevation: 0,
-        highlightElevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
+        );
+      },
     );
   }
 }

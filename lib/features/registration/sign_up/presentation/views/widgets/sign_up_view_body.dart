@@ -2,13 +2,13 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/functions/show_snackbar.dart';
 import 'package:drogovat_mobile/core/utils/assets.dart';
-import 'package:drogovat_mobile/features/registration/widgets/large_btn.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/sign_in_view.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/another_sign_up_way.dart';
 import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_cubit.dart';
 import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_state.dart';
-import 'package:drogovat_mobile/features/registration/widgets/custom_switch.dart';
 import 'package:drogovat_mobile/features/registration/widgets/custom_rich_text.dart';
+import 'package:drogovat_mobile/features/registration/widgets/custom_switch.dart';
+import 'package:drogovat_mobile/features/registration/widgets/large_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -48,6 +48,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
       listener: (context, state) {
         if (state is CreateUserSuccessState) {
           navigateOffTo(const SignInView());
+        } else if (state is CreateUserErrorState) {
+          showSnackBar(
+            title: 'Error',
+            text: state.error,
+          );
         }
       },
       builder: (context, state) {

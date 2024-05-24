@@ -1,72 +1,97 @@
 class PatientModel {
-  final String name;
-  final String status;
-  final String surgeryName;
+  int? pId;
+  String? patientName;
+  String? patientStatus;
+  String? opName;
+  String? height;
+  String? weight;
+  String? age;
+  String? gender;
+  String? heartState;
+  String? hypertension;
+  String? diabetes;
+  String? typeOfOp;
+  String? periodOfOp;
+  String? drugId;
+  String? heartRate;
+  String? bloodPressure;
+  String? rasRate;
+  String? oxSaturation;
+  String? endTidalCarbon;
+  String? temp;
+  String? electrocardiogram;
 
   PatientModel({
-    required this.name,
-    required this.status,
-    required this.surgeryName,
+    this.pId,
+    this.patientName,
+    this.patientStatus,
+    this.opName,
+    this.height,
+    this.weight,
+    this.age,
+    this.gender,
+    this.heartState,
+    this.hypertension,
+    this.diabetes,
+    this.typeOfOp,
+    this.periodOfOp,
+    this.drugId,
+    this.heartRate,
+    this.bloodPressure,
+    this.rasRate,
+    this.oxSaturation,
+    this.endTidalCarbon,
+    this.temp,
+    this.electrocardiogram,
   });
 
-  // PatientModel.fromJson(Map<String, dynamic> json){
-  //   name = json['name'];
-  //   status = json['status'];
-  // }
+  PatientModel.fromJson(Map<String, dynamic> json) {
+    pId = json['pId'] is int ? json['pId'] : int.parse(json['pId']);
+    patientName = json['patientName'];
+    patientStatus = json['patientStatus'];
+    opName = json['opName'];
+    height = json['height'];
+    weight = json['weight'];
+    age = json['age'];
+    gender = json['gender'];
+    heartState = json['heartState'];
+    hypertension = json['hypertension'];
+    diabetes = json['diabetes'];
+    typeOfOp = json['typeOfOp'];
+    periodOfOp = json['periodOfOp'];
+    drugId = json['drugId'];
+    heartRate = json['heartRate'];
+    bloodPressure = json['bloodPressure'];
+    rasRate = json['rasRate'];
+    oxSaturation = json['oxSaturation'];
+    endTidalCarbon = json['endTidalCarbon'];
+    temp = json['temp'];
+    electrocardiogram = json['electrocardiogram'];
+  }
 
-  // Map<String, dynamic> toMap(){
-  //   return{
-  //     'name':name,
-  //     'email':status,
-  //   };
-  // }
+  Map<String, dynamic> toMap() {
+    return {
+      'pId': pId,
+      'patientName': patientName,
+      'patientStatus': patientStatus,
+      'opName': opName,
+      'height': height,
+      'weight': weight,
+      'age': age,
+      'gender': gender,
+      'heartState': heartState,
+      'hypertension': hypertension,
+      'diabetes': diabetes,
+      'typeOfOp': typeOfOp,
+      'periodOfOp': periodOfOp,
+      'drugId': drugId,
+      'heartRate': heartRate,
+      'bloodPressure': bloodPressure,
+      'rasRate': rasRate,
+      'oxSaturation': oxSaturation,
+      'endTidalCarbon': endTidalCarbon,
+      'temp': temp,
+      'electrocardiogram': electrocardiogram,
+    };
+  }
 }
-
-
-List<PatientModel> patients = [
-  PatientModel(
-    name: 'Saleh Mohamed hamdy',
-    status: 'Active',
-    surgeryName: 'Open Heart',
-  ),
-  PatientModel(
-    name: 'Eman Ahmed Khalaf',
-    status: 'Done',
-    surgeryName: 'Broken bone',
-  ),
-  PatientModel(
-    name: 'Tawfiq Khaled Al-Saied',
-    status: 'Done',
-    surgeryName: 'laparoscopic',
-  ),
-  PatientModel(
-    name: 'Hend Roshdy Dayasti',
-    status: 'Prepare',
-    surgeryName: 'Open Heart',
-  ),
-  PatientModel(
-    name: 'Mena George Karlos',
-    status: 'Done',
-    surgeryName: 'appendix',
-  ),
-  PatientModel(
-    name: 'Mena George Karlos',
-    status: 'Done',
-    surgeryName: 'Open Heart',
-  ),
-  PatientModel(
-    name: 'Mena George Karlos',
-    status: 'Done',
-    surgeryName: 'Open Heart',
-  ),
-  PatientModel(
-    name: 'Mena George Karlos',
-    status: 'Done',
-    surgeryName: 'Open Heart',
-  ),
-  PatientModel(
-    name: 'Mena George Karlos',
-    status: 'Done',
-    surgeryName: 'Open Heart',
-  ),
-];

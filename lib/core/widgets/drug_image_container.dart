@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class DrugImageContainer extends StatelessWidget {
   const DrugImageContainer({
     super.key,
-    required this.index, required this.width, required this.height,
+    required this.index,
+    required this.width,
+    required this.height,
   });
 
   final int index;
@@ -21,7 +23,7 @@ class DrugImageContainer extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: Image.asset(
-        AppCubit.get(context).displayDrugList[index].image,
+        AppCubit.get(context).displayDrugList[index].drugImage ?? '',
       ),
     );
   }

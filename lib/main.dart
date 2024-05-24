@@ -1,5 +1,6 @@
 import 'package:drogovat_mobile/core/utils/colors.dart';
 import 'package:drogovat_mobile/features/monitor/presentation/manager/cubit/monitor_cubit.dart';
+import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/sign_in_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,33 +17,44 @@ import 'features/registration/sign_in/manager/sign_in_cubit.dart';
 import 'features/registration/sign_up/manager/sign_up_cubit.dart';
 import 'firebase_options.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Bloc.observer = MyBlocObserver();
-  await CacheHelper.init();
 
+  Widget widget;
+  await CacheHelper.init();
   uId = CacheHelper.getData(key: 'uId');
   if (uId != null) {
+    widget = const InitialView();
   } else {
+    widget = const SignInView();
   }
 
-  runApp(const MyApp());
+  runApp(MyApp(
+    screen: widget,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, });
+  const MyApp({
+    super.key,
+    required this.screen,
+  });
 
-  // final Widget screen;
+  final Widget screen;
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => AppCubit()..getUserData()),
+        BlocProvider(
+            create: (context) => AppCubit()
+              ..getAllPatients
+              ..getUserData()
+              ..getAllDrugs()),
         BlocProvider(create: (context) => SignInCubit()),
         BlocProvider(create: (context) => SignUpCubit()),
         BlocProvider(create: (context) => MonitorCubit()),
@@ -59,7 +71,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         getPages: pages,
-        home: const InitialView(),
+        home: screen,
       ),
     );
   }
