@@ -1,11 +1,16 @@
 import 'package:drogovat_mobile/core/utils/styles.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
 
 class PatientInitInfoList extends StatelessWidget {
-  const PatientInitInfoList({super.key});
+  const PatientInitInfoList({super.key, required this.index});
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
+    var cubit = AppCubit.get(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -14,8 +19,8 @@ class PatientInitInfoList extends StatelessWidget {
           width: double.infinity,
           margin: const EdgeInsets.symmetric(vertical: 15),
           padding: const EdgeInsets.only(left: 25),
-          child: const Text(
-            'Open heart surgery',
+          child: Text(
+            '${cubit.displayPatientList[index].opName}',
             style: Styles.textStyle18DarkBlue,
           ),
         ),
@@ -66,9 +71,9 @@ class PatientInitInfoList extends StatelessWidget {
             vertical: 15,
           ),
           padding: const EdgeInsets.only(left: 25),
-          child: const Text(
-            'Done',
-            style: TextStyle(
+          child: Text(
+            '${cubit.displayPatientList[index].patientStatus}',
+            style: const TextStyle(
               fontSize: 18,
             ),
           ),
@@ -80,8 +85,8 @@ class PatientInitInfoList extends StatelessWidget {
             vertical: 15,
           ),
           padding: const EdgeInsets.only(left: 25),
-          child: const Text(
-            'Dr. RASHA WAHDAN',
+          child: Text(
+            'Dr. ${cubit.uModel?.name}',
             style: Styles.textStyle18DarkBlue,
           ),
         ),

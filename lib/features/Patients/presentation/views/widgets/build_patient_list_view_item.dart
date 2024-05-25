@@ -19,13 +19,13 @@ class PatientListViewItem extends StatelessWidget {
       builder: (context, state) {
         return InkWell(
           onTap: () {
-            navigateTo(const PatientProfileView());
+            navigateTo(PatientProfileView(index: index));
           },
           child: Container(
-            width: 304,
-            height: 88,
+            width: double.infinity,
+            height: 96,
             padding:
-                const EdgeInsets.only(top: 6, bottom: 6, left: 13, right: 10),
+                const EdgeInsets.only(top: 10, bottom: 10, left: 13, right: 15),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),

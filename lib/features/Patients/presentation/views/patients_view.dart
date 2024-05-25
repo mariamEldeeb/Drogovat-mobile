@@ -13,12 +13,14 @@ class PatientsView extends StatelessWidget {
     return BlocBuilder<AppCubit, AppStates>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.only(left: 28, right: 28, top: 28),
+          padding: const EdgeInsets.only(left: 25, right: 25, top: 28),
           child: ListView.separated(
             physics: const BouncingScrollPhysics(),
             itemCount: AppCubit.get(context).displayPatientList.length,
             itemBuilder: (context, index) {
-              return PatientListViewItem(index: index,);
+              return PatientListViewItem(
+                index: index,
+              );
             },
             separatorBuilder: (context, index) {
               return const SizedBox(height: 12);

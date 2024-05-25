@@ -11,14 +11,14 @@ class BuildNameColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var statusWordColor;
+    var statusConColor;
     var cubit = AppCubit.get(context);
     if (cubit.displayPatientList[index].patientStatus == 'Done')
-      statusWordColor = const Color(0xff106414);
+      statusConColor = const Color(0xff2145CF);
     if (cubit.displayPatientList[index].patientStatus == 'Prepare')
-      statusWordColor = Colors.deepOrange;
+      statusConColor = const Color(0xff949700);
     if (cubit.displayPatientList[index].patientStatus == 'Active')
-      statusWordColor = Colors.red;
+      statusConColor = const Color(0xffB60000);
 
     return Expanded(
       child: Column(
@@ -26,29 +26,37 @@ class BuildNameColumn extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppCubit.get(context).displayPatientList[index].patientName ?? '',
+            '${cubit.displayPatientList[index].patientName}',
             style: const TextStyle(
               fontSize: 18,
-              color: Colors.black,
             ),
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppCubit.get(context).displayPatientList[index].patientStatus ??
-                    '',
+                '${cubit.displayPatientList[index].opName}',
                 style: TextStyle(
                   fontSize: 18,
-                  color: statusWordColor,
+                  color: Colors.black.withOpacity(0.5),
                 ),
               ),
-              Text(
-                AppCubit.get(context).displayPatientList[index].opName ?? '',
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
+              Container(
+                width: 71,
+                height: 23,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: statusConColor,
+                ),
+                child: Center(
+                  child: Text(
+                    '${cubit.displayPatientList[index].patientStatus}',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ],

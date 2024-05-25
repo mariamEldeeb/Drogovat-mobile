@@ -30,7 +30,7 @@ class AppCubit extends Cubit<AppStates> {
     const PatientsView(),
     const DrugsView(),
   ];
-
+///////////////////////////////////////////////////////////////
   UserModel? uModel;
 
   void getUserData() {
@@ -116,6 +116,7 @@ class AppCubit extends Cubit<AppStates> {
     });
   }
 
+///////////////////////////////////////////////////////////////
   List<DrugModel> drugs = [];
   List<DrugModel> displayDrugList = [];
 
@@ -146,7 +147,10 @@ class AppCubit extends Cubit<AppStates> {
     emit(UpdateDrugListState());
   }
 
+///////////////////////////////////////////////////////////////
   List<PatientModel> patients = [];
+  List<PatientModel> displayPatientList = [];
+
   void getAllPatients() {
     if (patients.isEmpty) {
       FirebaseFirestore.instance
@@ -156,6 +160,7 @@ class AppCubit extends Cubit<AppStates> {
         value.docs.forEach((element) {
           patients.add(PatientModel.fromJson(element.data()));
         });
+        displayPatientList = List.from(patients);
         emit(GetAllPatientsSuccessState());
       }).catchError((error) {
         print(error.toString());
@@ -165,12 +170,14 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   // update patient search List
-  List<PatientModel> displayPatientList = [];
   void updatePatientList(String value) {
-    displayPatientList = patients
-        .where((element) =>
-            element.patientName!.toLowerCase().contains(value.toLowerCase()))
-        .toList();
+    if (value.isEmpty) {
+      displayPatientList = List.from(patients);
+    } else {
+      displayPatientList = patients.where((element) {
+        return element.patientName!.toLowerCase().contains(value.toLowerCase());
+      }).toList();
+    }
     emit(UpdatePatientListState());
   }
 }
