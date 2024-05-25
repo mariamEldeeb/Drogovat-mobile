@@ -50,3 +50,5 @@ const String pageViewImage3 = 'assets/images/page_view3.png';
 const String pageViewImage3Svg = 'assets/images/page_view3.svg';
 const String regisAppBar = 'assets/images/regis_app_bar.svg';
 const String profileCover = 'assets/images/profile_bg.png';
+const String fadeLogo = 'assets/images/fade_logo.svg';
+const String fadeLogoPng = 'assets/images/fade_logo.png';

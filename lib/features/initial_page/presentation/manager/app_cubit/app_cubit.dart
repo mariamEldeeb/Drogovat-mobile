@@ -7,6 +7,7 @@ import 'package:drogovat_mobile/features/drugs/presentation/views/drugs_view.dar
 import 'package:drogovat_mobile/features/registration/data/models/user_model.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -116,12 +117,15 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   List<DrugModel> drugs = [];
+  List<DrugModel> displayDrugList = [];
+
   void getAllDrugs() {
     if (drugs.isEmpty) {
       FirebaseFirestore.instance.collection(drugCollection).get().then((value) {
         value.docs.forEach((element) {
           drugs.add(DrugModel.fromJson(element.data()));
         });
+        displayDrugList = List.from(drugs);
         emit(GetAllDrugsSuccessState());
       }).catchError((error) {
         print(error.toString());
@@ -131,12 +135,14 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   // update drug search List
-  List<DrugModel> displayDrugList = [];
   void updateDrugList(String value) {
-    displayDrugList = drugs
-        .where((element) =>
-            element.drugName!.toLowerCase().contains(value.toLowerCase()))
-        .toList();
+    if (value.isEmpty) {
+      displayDrugList = List.from(drugs);
+    } else {
+      displayDrugList = drugs.where((element) {
+        return element.drugName!.toLowerCase().contains(value.toLowerCase());
+      }).toList();
+    }
     emit(UpdateDrugListState());
   }
 

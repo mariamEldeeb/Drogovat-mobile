@@ -12,23 +12,20 @@ class DrugsView extends StatelessWidget {
     return BlocBuilder<AppCubit, AppStates>(
       builder: (context, state) {
         var cubit = AppCubit.get(context);
-        return Center(
-          child: Container(
-            width: 200,
-            margin: const EdgeInsets.only(top: 30),
-            child: ListView.separated(
-              shrinkWrap: true,
-              physics: const BouncingScrollPhysics(),
-              itemCount: cubit.displayDrugList.length,
-              itemBuilder: (context, index) {
-                return DrugsListViewItem(
-                  index: index,
-                );
-              },
-              separatorBuilder: (context, index0) {
-                return const SizedBox(height: 15);
-              },
-            ),
+        return Padding(
+          padding: const EdgeInsets.only(left: 31, right: 31, top: 40),
+          child: ListView.separated(
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
+            itemCount: cubit.displayDrugList.length,
+            itemBuilder: (context, index) {
+              return DrugsListViewItem(
+                index: index,
+              );
+            },
+            separatorBuilder: (context, index0) {
+              return const SizedBox(height: 35);
+            },
           ),
         );
       },

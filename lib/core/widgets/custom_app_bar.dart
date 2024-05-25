@@ -11,9 +11,11 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.sKey,
+    required this.controller,
   });
 
   final GlobalKey<ScaffoldState> sKey;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +39,17 @@ class CustomAppBar extends StatelessWidget {
               SearchContainer(
                 hintText:
                     cubit.selectedIndex == 0 ? 'Patient name' : 'Drug Name',
-                onChanged: (value){
-                  cubit.selectedIndex == 0 ? cubit.updatePatientList(value) : cubit.updateDrugList(value);
+                onChanged: (value) {
+                  cubit.selectedIndex == 0
+                      ? cubit.updatePatientList(value)
+                      : cubit.updateDrugList(value);
                 },
-                onFieldSubmitted: (value){
-                  cubit.selectedIndex == 0 ? cubit.updatePatientList(value) : cubit.updateDrugList(value);
+                onFieldSubmitted: (value) {
+                  cubit.selectedIndex == 0
+                      ? cubit.updatePatientList(value)
+                      : cubit.updateDrugList(value);
                 },
+                controller: controller,
               ),
             ],
           ),

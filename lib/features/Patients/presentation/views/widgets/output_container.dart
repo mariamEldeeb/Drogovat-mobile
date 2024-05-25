@@ -9,7 +9,7 @@ class OutputContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       width: MediaQuery.of(context).size.width,
       height: 43,
       decoration: BoxDecoration(
@@ -21,7 +21,8 @@ class OutputContainer extends StatelessWidget {
         children: [
           Text(
             label,
-            style: const TextStyle(fontSize: 18, color: Colors.grey),
+            style:
+                TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.6)),
           ),
           Text(
             value,

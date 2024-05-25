@@ -10,9 +10,11 @@ class SearchContainer extends StatelessWidget {
     required this.hintText,
     this.onChanged,
     this.onFieldSubmitted,
+    required this.controller,
   });
 
   final String hintText;
+  final TextEditingController controller;
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
 
@@ -25,7 +27,6 @@ class SearchContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
-        // boxShadow: containerShadow(),
       ),
       child: Row(
         children: [
@@ -37,6 +38,7 @@ class SearchContainer extends StatelessWidget {
           const SizedBox(width: 15),
           Expanded(
             child: TextFormField(
+              controller: controller,
               style: Styles.textStyle20.copyWith(color: darkBlueColor),
               decoration: InputDecoration(
                 hintText: hintText,

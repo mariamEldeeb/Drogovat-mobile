@@ -1,4 +1,5 @@
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DrugImageContainer extends StatelessWidget {
@@ -15,16 +16,32 @@ class DrugImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: const BoxDecoration(
-        color: Color(0xffF2F1F1),
-        shape: BoxShape.circle,
-      ),
-      child: Image.asset(
-        AppCubit.get(context).displayDrugList[index].drugImage ?? '',
-      ),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: const Color(0xffF2F1F1),
+            borderRadius: BorderRadius.circular(9),
+            boxShadow: [
+              const BoxShadow(
+                color: Color(0x3F000000),
+                blurRadius: 4,
+                offset: Offset(0, 4),
+                spreadRadius: 0,
+              )
+            ],
+          ),
+        ),
+        Image.asset(
+          AppCubit.get(context).displayDrugList[index].drugImage ?? '',
+          width: 81,
+          height: 81,
+          fit: BoxFit.contain,
+        )
+      ],
     );
   }
 }

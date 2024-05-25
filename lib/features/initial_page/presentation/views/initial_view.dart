@@ -9,8 +9,23 @@ import '../../../../core/utils/constants.dart';
 import '../manager/app_cubit/app_cubit.dart';
 import '../manager/app_cubit/app_status.dart';
 
-class InitialView extends StatelessWidget {
+class InitialView extends StatefulWidget {
   const InitialView({super.key});
+
+  @override
+  State<InitialView> createState() => _InitialViewState();
+}
+
+class _InitialViewState extends State<InitialView> {
+  var patientSearchController = TextEditingController();
+  var drugSearchController = TextEditingController();
+
+  @override
+  void dispose() {
+    patientSearchController.dispose();
+    drugSearchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +43,9 @@ class InitialView extends StatelessWidget {
               preferredSize: const Size.fromHeight(kToolbarHeight + 20),
               child: CustomAppBar(
                 sKey: scaffoldKey,
+                controller: cubit.selectedIndex == 0
+                    ? patientSearchController
+                    : drugSearchController,
               ),
             ),
             body: cubit.pages[cubit.selectedIndex],
