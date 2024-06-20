@@ -44,7 +44,7 @@ class AppCubit extends Cubit<AppStates> {
       emit(GetUserDataSuccessState());
     }).catchError((error) {
       print(error.toString());
-      emit(GetUserDataErrorState());
+      emit(GetUserDataErrorState(error.toString()));
     });
   }
 
@@ -150,6 +150,22 @@ class AppCubit extends Cubit<AppStates> {
 ///////////////////////////////////////////////////////////////
   List<PatientModel> patients = [];
   List<PatientModel> displayPatientList = [];
+  PatientModel? patientData;
+
+  // void getPatientData(){
+  //   emit(GetPatientDataLoadingState());
+  //   FirebaseFirestore.instance
+  //       .collection(patientsCollection)
+  //       .doc()
+  //       .get()
+  //       .then((value) {
+  //     patientData = PatientModel.fromJson(value.data()!);
+  //     emit(GetPatientDataSuccessState());
+  //   }).catchError((error) {
+  //     print(error.toString());
+  //     emit(GetPatientDataErrorState());
+  //   });
+  // }
 
   void getAllPatients() {
     if (patients.isEmpty) {

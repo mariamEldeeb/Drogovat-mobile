@@ -1,6 +1,8 @@
 import 'package:drogovat_mobile/core/functions/show_custom_dialog.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_status.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/views/widgets/add_drug_container.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/views/widgets/add_patient_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,25 +23,11 @@ class CustomFloatingActionBtn extends StatelessWidget {
               AppCubit.get(context).selectedIndex == 0
                   ? showCustomDialog(
                       context: context,
-                      child: Container(
-                        width: double.infinity,
-                        height: 400,
-                        color: Colors.white,
-                        child: const Center(
-                          child: Text('Add patient'),
-                        ),
-                      ),
+                      child: const AddPatientContainer(),
                     )
                   : showCustomDialog(
                       context: context,
-                      child: Container(
-                        width: double.infinity,
-                        height: 400,
-                        color: Colors.white,
-                        child: const Center(
-                          child: Text('Add Drugs'),
-                        ),
-                      ),
+                      child: const AddDrugContainer(),
                     );
             },
             child: Stack(

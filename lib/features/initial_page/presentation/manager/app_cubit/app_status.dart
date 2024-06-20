@@ -13,9 +13,9 @@ class GetUserDataLoadingState extends AppStates {}
 class GetUserDataSuccessState extends AppStates {}
 
 class GetUserDataErrorState extends AppStates {
-  // final String errorMessage;
-  //
-  // GetUserDataErrorState(this.errorMessage);
+  final String errorMessage;
+
+  GetUserDataErrorState(this.errorMessage);
 }
 
 class GetPatientDataLoadingState extends AppStates {}

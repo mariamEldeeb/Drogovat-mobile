@@ -1,46 +1,45 @@
 import 'package:drogovat_mobile/core/widgets/drug_image_container.dart';
 import 'package:drogovat_mobile/features/Patients/presentation/views/widgets/output_container.dart';
+import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
 
 class PatientDrugInfo extends StatelessWidget {
-  const PatientDrugInfo({super.key});
+  const PatientDrugInfo({super.key, required this.index});
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    List<String> drugDoseTime = [
-      'Loading',
-      'maintenance',
-      'Duration',
-      'Full amount',
-    ];
-    List<String> drugDoseValue = [
-      '150 ml',
-      '25 ml',
-      '15 m',
-      '200 ml',
-    ];
+    var cubit = AppCubit.get(context);
 
     return Column(
       children: [
         const DrugImageContainer(
           index: 0,
-          width: 194,
-          height: 194,
+          width: 118,
+          height: 118,
         ),
         const SizedBox(height: 40),
-        ListView.separated(
-          shrinkWrap: true,
-          itemCount: drugDoseTime.length,
-          itemBuilder: (context, index) {
-            return OutputContainer(
-              label: '${drugDoseTime[index]}',
-              value: '${drugDoseValue[index]}',
-            );
-          },
-          separatorBuilder: (context, index) {
-            return const SizedBox(height: 15);
-          },
+        OutputContainer(
+          value: '${cubit.displayDrugList[index].drugLoadingDose} ml',
+          label: 'Loading',
         ),
+        const SizedBox(height: 15),
+        OutputContainer(
+          value: '${cubit.displayDrugList[index].drugMaintenanceDose} ml',
+          label: 'Maintenance',
+        ),
+        const SizedBox(height: 15),
+        OutputContainer(
+          value: '${cubit.displayDrugList[index].drugActiveDuration} m',
+          label: 'Duration',
+        ),
+        const SizedBox(height: 15),
+        OutputContainer(
+          value: '${cubit.displayDrugList[index].drugFullAmount} ml',
+          label: 'Full amount',
+        ),
+        const SizedBox(height: 15),
       ],
     );
   }

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:drogovat_mobile/core/utils/assets.dart';
 import 'package:drogovat_mobile/features/registration/data/models/user_model.dart';
-import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_state.dart';
+import 'package:drogovat_mobile/features/registration/sign_up/presentation/manager/sign_up_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,7 +48,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
       email: email,
       phone: phone,
       userId: userId,
-      image: personIcon,
+      image: '',
     );
 
     FirebaseFirestore.instance
@@ -84,9 +83,8 @@ class SignUpCubit extends Cubit<SignUpStates> {
   }
 
   bool isSwitchOn = false;
-
-  void changeSwitchValue() {
-    isSwitchOn = !isSwitchOn;
+  void changeSwitchValue(value) {
+    isSwitchOn = value;
     emit(ChangeSwitchValueState());
   }
 }

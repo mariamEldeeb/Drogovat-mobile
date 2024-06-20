@@ -1,19 +1,20 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/functions/show_snackbar.dart';
-import 'package:drogovat_mobile/core/utils/assets.dart';
+import 'package:drogovat_mobile/core/widgets/custom_switch.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/sign_in_view.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/another_sign_up_way.dart';
-import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_cubit.dart';
-import 'package:drogovat_mobile/features/registration/sign_up/manager/sign_up_state.dart';
 import 'package:drogovat_mobile/features/registration/widgets/custom_rich_text.dart';
-import 'package:drogovat_mobile/features/registration/widgets/custom_switch.dart';
 import 'package:drogovat_mobile/features/registration/widgets/large_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconly/iconly.dart';
 
 import '../../../../widgets/build_header.dart';
 import '../../../../widgets/custom_text_field.dart';
+import '../../manager/sign_up_cubit.dart';
+import '../../manager/sign_up_state.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
@@ -70,7 +71,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       CustomTextField(
                         controller: nameController,
                         hintText: 'Full Name',
-                        prefixIcon: personIcon,
+                        prefixIcon: Icons.person,
                         isPassword: false,
                         validate: (value) {
                           if (value!.isEmpty) {
@@ -84,7 +85,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         controller: phoneController,
                         hintText: 'Phone',
                         textInputType: TextInputType.number,
-                        prefixIcon: phoneIcon,
+                        prefixIcon: IconlyLight.call,
                         isPassword: false,
                         validate: (value) {
                           if (value!.isEmpty) {
@@ -100,7 +101,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         controller: emailController,
                         hintText: 'Email',
                         textInputType: TextInputType.emailAddress,
-                        prefixIcon: atIcon,
+                        prefixIcon: Icons.alternate_email_rounded,
                         isPassword: false,
                         validate: (value) {
                           if (value!.isEmpty) {
@@ -113,7 +114,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       CustomTextField(
                         controller: passController,
                         hintText: 'Password',
-                        prefixIcon: lockIcon,
+                        prefixIcon: FontAwesomeIcons.userLock,
                         suffixIcon: cubit.suffixPassIcon,
                         isPassword: cubit.isPassword,
                         suffixPressed: () {
@@ -132,7 +133,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       CustomTextField(
                         controller: confirmPassController,
                         hintText: 'Confirm Password',
-                        prefixIcon: lockCheckIcon,
+                        prefixIcon: FontAwesomeIcons.checkDouble,
                         suffixIcon: cubit.suffixConfirmPassIcon,
                         isPassword: cubit.isConfirmPassword,
                         suffixPressed: () {
@@ -146,8 +147,12 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         },
                       ),
                       const SizedBox(height: 20),
-                      const CustomSwitch(
+                      CustomSwitch(
                         switchLabel: 'I accept all the policy & terms',
+                        switchValue: cubit.isSwitchOn,
+                        onChange: (val) {
+                          cubit.changeSwitchValue(val);
+                        },
                       ),
                       const SizedBox(height: 20),
                       ConditionalBuilder(

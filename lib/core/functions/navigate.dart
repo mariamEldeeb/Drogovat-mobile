@@ -1,5 +1,5 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void navigateTo(Widget page) {
   Get.to(
@@ -14,6 +14,15 @@ void navigateDownUpTo(Widget page) {
     page,
     duration: const Duration(milliseconds: 300),
     transition: Transition.downToUp,
+  );
+}
+
+void drawerNavigation(Widget page) {
+  Get.back();
+  Get.to(
+    () => page,
+    transition: Transition.rightToLeft,
+    duration: const Duration(milliseconds: 300),
   );
 }
 

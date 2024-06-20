@@ -1,6 +1,5 @@
 import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/utils/colors.dart';
 
@@ -21,7 +20,7 @@ class CustomTextField extends StatelessWidget {
 
   final String hintText;
   final TextInputType? textInputType;
-  final String prefixIcon;
+  final IconData prefixIcon;
   final IconData? suffixIcon;
   final Function()? suffixPressed;
   final String? Function(String?)? validate;
@@ -43,12 +42,7 @@ class CustomTextField extends StatelessWidget {
       ),
       child: Row(
         children: [
-          SvgPicture.asset(
-            prefixIcon,
-            colorFilter: const ColorFilter.mode(darkBlueColor, BlendMode.srcIn),
-            width: 20,
-            height: 24,
-          ),
+          Icon(prefixIcon),
           const SizedBox(width: 20),
           Expanded(
             child: TextFormField(

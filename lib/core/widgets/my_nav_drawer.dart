@@ -1,9 +1,10 @@
+import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/utils/colors.dart';
 import 'package:drogovat_mobile/core/utils/styles.dart';
-import 'package:drogovat_mobile/core/widgets/nav_drawer_model.dart';
+import 'package:drogovat_mobile/features/drawer_pages/about_app/presentation/views/about_app_view.dart';
+import 'package:drogovat_mobile/features/drawer_pages/settings/presentation/views/settings_view.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../features/drawer_pages/account/presentation/views/account_view.dart';
 import '../utils/assets.dart';
@@ -20,7 +21,7 @@ class MyNavigationDrawer extends StatelessWidget {
         padding:
             const EdgeInsets.only(top: 25, bottom: 60, right: 18, left: 18),
         child: Column(
-          children: [
+          children: <Widget>[
             Row(
               children: [
                 buildCircleAvatar(context),
@@ -32,25 +33,61 @@ class MyNavigationDrawer extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 70),
-            ListView.separated(
-              shrinkWrap: true,
-              itemCount: drawerModel.length,
-              itemBuilder: (context, index) {
-                return BuildNavDrawerItem(
-                  text: drawerModel[index].label,
-                  icon: drawerModel[index].icon,
-                  onTap: () => onSelect(index),
-                );
+            BuildNavDrawerItem(
+              text: 'Language',
+              leading: const Icon(
+                Icons.language_sharp,
+                color: Colors.white,
+                size: 30,
+              ),
+              onTap: () {},
+            ),
+            const SizedBox(height: 40),
+            BuildNavDrawerItem(
+              text: 'Settings',
+              leading: const Icon(
+                Icons.settings,
+                color: Colors.white,
+                size: 30,
+              ),
+              onTap: () {
+                drawerNavigation(SettingsView());
               },
-              separatorBuilder: (context, index) {
-                return const SizedBox(height: 40);
+            ),
+            const SizedBox(height: 40),
+            BuildNavDrawerItem(
+              text: 'My account',
+              leading: const Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 30,
+              ),
+              onTap: () {
+                drawerNavigation(const AccountView());
               },
+            ),
+            const SizedBox(height: 40),
+            BuildNavDrawerItem(
+              text: 'Contact Us',
+              leading: Image.asset(
+                contactsUsIconPng,
+                color: Colors.white,
+                height: 25,
+                width: 25,
+              ),
+              onTap: () {},
             ),
             const Spacer(),
             BuildNavDrawerItem(
               text: 'About Drogovat',
-              icon: infoIconPng,
-              onTap: () => onSelect(4),
+              leading: const Icon(
+                Icons.info_outline,
+                color: Colors.white,
+                size: 30,
+              ),
+              onTap: () {
+                drawerNavigation(const AboutAppView());
+              },
             ),
           ],
         ),
@@ -60,50 +97,22 @@ class MyNavigationDrawer extends StatelessWidget {
 
   Widget buildCircleAvatar(context) {
     return Container(
-      width: 65,
-      height: 65,
+      width: 45,
+      height: 45,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: backgroundColor,
       ),
-      child: AppCubit.get(context).uModel?.image == null
-          ? Center(
-              child: Text(
-                AppCubit.get(context).uModel?.name?[0].toUpperCase() ?? '',
-                style: const TextStyle(
-                  fontSize: 40,
-                  color: darkBlueColor,
-                ),
-              ),
-            )
-          : Image.network(
-              AppCubit.get(context).uModel?.image ?? '',
-            ),
+      child: Center(
+        child: Text(
+          '${AppCubit.get(context).uModel?.name?[0].toUpperCase()}',
+          style: const TextStyle(
+            fontSize: 35,
+            color: darkBlueColor,
+          ),
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
     );
-  }
-
-  void onSelect(index) {
-    switch (index) {
-      case 0:
-        print('Language');
-        break;
-      case 1:
-        print('Patients');
-        break;
-      case 2:
-        Get.back();
-        Get.to(
-          () => const AccountView(),
-          transition: Transition.rightToLeft,
-          duration: const Duration(milliseconds: 300),
-        );
-        break;
-      case 3:
-        print('contact us');
-        break;
-      case 4:
-        print('About us');
-        break;
-    }
   }
 }

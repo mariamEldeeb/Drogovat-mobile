@@ -73,10 +73,12 @@ class PatientProfileView extends StatelessWidget {
             child: TabBarView(
               children: [
                 PatientInitInfo(index: index),
-                PatientPersonalInfo(),
-                PatientVitalSignInfo(),
-                PatientDoseInfo(),
-                PatientDrugInfo(),
+                PatientPersonalInfo(index: index),
+                PatientVitalSignInfo(
+                  index: index,
+                ),
+                const PatientDoseInfo(),
+                PatientDrugInfo(index: index),
               ],
             ),
           ),

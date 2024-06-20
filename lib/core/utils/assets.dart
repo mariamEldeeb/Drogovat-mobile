@@ -15,7 +15,6 @@ const String TIcon = 'assets/icons/T_icon.png';
 // main icons
 const String drugSign = 'assets/icons/drug_sign.svg';
 const String drugIconPng = 'assets/icons/drug_icon.png';
-const String personIcon = 'assets/icons/person_icon.svg';
 const String personIconPng = 'assets/icons/person_icon.png';
 const String addPatientIconPng = 'assets/icons/add_patient_sign.png';
 const String addDrugIconPng = 'assets/icons/add_drug_sign.png';
@@ -52,3 +51,4 @@ const String regisAppBar = 'assets/images/regis_app_bar.svg';
 const String profileCover = 'assets/images/profile_bg.png';
 const String fadeLogo = 'assets/images/fade_logo.svg';
 const String fadeLogoPng = 'assets/images/fade_logo.png';
+const String forFun = 'assets/images/for_fun.png';

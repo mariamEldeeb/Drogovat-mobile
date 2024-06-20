@@ -1,5 +1,6 @@
 import 'package:drogovat_mobile/core/utils/styles.dart';
-import 'package:drogovat_mobile/features/registration/widgets/custom_switch.dart';
+import 'package:drogovat_mobile/core/widgets/custom_switch.dart';
+import 'package:drogovat_mobile/features/registration/sign_in/manager/sign_in_cubit.dart';
 import 'package:flutter/material.dart';
 
 class CheckRow extends StatelessWidget {
@@ -10,8 +11,12 @@ class CheckRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const CustomSwitch(
+        CustomSwitch(
           switchLabel: 'Remember me',
+          switchValue: SignInCubit.get(context).isSwitchOn,
+          onChange: (val) {
+            SignInCubit.get(context).changeSwitchValue(val);
+          },
         ),
         Text(
           'Forget Password?',

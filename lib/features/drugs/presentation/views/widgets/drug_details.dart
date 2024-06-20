@@ -22,8 +22,8 @@ class DrugDetails extends StatelessWidget {
         backgroundColor: darkBlueColor,
         body: Stack(
           children: [
-            buildContent(context, cubit),
             buildBackground(context),
+            buildContent(context, cubit),
           ],
         ),
       ),
@@ -33,77 +33,105 @@ class DrugDetails extends StatelessWidget {
   Widget buildContent(BuildContext context, AppCubit cubit) {
     return Align(
       alignment: Alignment.bottomCenter,
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height / 1.17,
-        padding: const EdgeInsets.symmetric(horizontal: 22),
-        decoration: const BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(34),
-            topRight: Radius.circular(34),
-          ),
-        ),
-        child: Column(
+        child: Stack(
           children: [
-            const SizedBox(height: 55),
-            Text(
-              cubit.displayDrugList[index].drugName ?? '',
-              style: const TextStyle(
-                fontSize: 25,
-              ),
-            ),
-            const SizedBox(height: 11),
-            const Text(
-              'Set as first portion',
-              style: TextStyle(
-                color: Color(0xB2313131),
-                fontSize: 16,
-              ),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              cubit.displayDrugList[index].drugDesc ?? '',
-              style: const TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            const SizedBox(height: 30),
-            OutputContainer(
-                value: '${cubit.displayDrugList[index].drugLoadingDose} ml',
-                label: 'Loading'),
-            const SizedBox(height: 30),
-            OutputContainer(
-                value: '${cubit.displayDrugList[index].drugMaintenanceDose} ml',
-                label: 'Maintenance'),
-            const SizedBox(height: 30),
-            OutputContainer(
-                value: '${cubit.displayDrugList[index].drugActiveDuration} m',
-                label: 'Duration'),
-            const SizedBox(height: 30),
-            OutputContainer(
-                value: '${cubit.displayDrugList[index].drugFullAmount} ml',
-                label: 'Full amount'),
-            const SizedBox(height: 30),
-            const Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Warning ',
-                    style: TextStyle(
-                      color: Color(0xFFFF0000),
-                      fontSize: 16,
+            Column(
+              children: [
+                const SizedBox(height: 30),
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  decoration: const BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(34),
+                      topRight: Radius.circular(34),
                     ),
                   ),
-                  TextSpan(
-                    text:
-                        '* These numbers are approximate depending on the patient\'s condition',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 65),
+                      Text(
+                        cubit.displayDrugList[index].drugName ?? '',
+                        style: const TextStyle(
+                          fontSize: 25,
+                        ),
+                      ),
+                      const SizedBox(height: 11),
+                      const Text(
+                        'Set as first portion',
+                        style: TextStyle(
+                          color: Color(0xB2313131),
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Text(
+                        cubit.displayDrugList[index].drugDesc ?? '',
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      OutputContainer(
+                        value:
+                            '${cubit.displayDrugList[index].drugLoadingDose} ml',
+                        label: 'Loading',
+                      ),
+                      const SizedBox(height: 30),
+                      OutputContainer(
+                        value:
+                            '${cubit.displayDrugList[index].drugMaintenanceDose} ml',
+                        label: 'Maintenance',
+                      ),
+                      const SizedBox(height: 30),
+                      OutputContainer(
+                        value:
+                            '${cubit.displayDrugList[index].drugActiveDuration} m',
+                        label: 'Duration',
+                      ),
+                      const SizedBox(height: 30),
+                      OutputContainer(
+                        value:
+                            '${cubit.displayDrugList[index].drugFullAmount} ml',
+                        label: 'Full amount',
+                      ),
+                      const SizedBox(height: 30),
+                      const Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Warning ',
+                              style: TextStyle(
+                                color: Color(0xFFFF0000),
+                                fontSize: 16,
+                              ),
+                            ),
+                            TextSpan(
+                              text:
+                                  '* These numbers are approximate depending on the patient\'s condition',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                ],
+                ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: DrugImageContainer(
+                index: index,
+                width: 85,
+                height: 85,
               ),
-              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -112,41 +140,30 @@ class DrugDetails extends StatelessWidget {
   }
 
   Widget buildBackground(BuildContext context) {
-    return SizedBox(
-      height: 150,
-      child: Stack(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 110,
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            color: darkBlueColor,
-            child: Image.asset(
-              fadeLogoPng,
-              width: double.infinity,
-              fit: BoxFit.contain,
-            ),
+    return Stack(
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: 120,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          color: darkBlueColor,
+          child: Image.asset(
+            fadeLogoPng,
+            width: double.infinity,
+            fit: BoxFit.contain,
           ),
-          IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(
-              IconlyLight.arrow_left,
-              color: Colors.white,
-              size: 40,
-            ),
+        ),
+        IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            IconlyLight.arrow_left,
+            color: Colors.white,
+            size: 40,
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: DrugImageContainer(
-              index: index,
-              width: 85,
-              height: 85,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

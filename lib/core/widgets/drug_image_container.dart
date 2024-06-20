@@ -1,6 +1,7 @@
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DrugImageContainer extends StatelessWidget {
   const DrugImageContainer({
@@ -35,11 +36,14 @@ class DrugImageContainer extends StatelessWidget {
             ],
           ),
         ),
-        Image.asset(
-          AppCubit.get(context).displayDrugList[index].drugImage ?? '',
-          width: 81,
-          height: 81,
-          fit: BoxFit.contain,
+        Transform.scale(
+          scale: 1.2,
+          child: Image.asset(
+            AppCubit.get(context).displayDrugList[index].drugImage ?? '',
+            width: 81,
+            height: 81,
+            fit: BoxFit.contain,
+          ),
         )
       ],
     );

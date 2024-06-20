@@ -4,6 +4,8 @@ class SignInInitialState extends SignInStates {}
 
 class ChangeVisibilityPassIconState extends SignInStates {}
 
+class ChangeSwitchValueState extends SignInStates {}
+
 class SignInLoadingState extends SignInStates {}
 
 class SignInSuccessState extends SignInStates {

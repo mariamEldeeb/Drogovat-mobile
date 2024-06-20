@@ -1,16 +1,15 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/functions/show_snackbar.dart';
-import 'package:drogovat_mobile/core/utils/assets.dart';
 import 'package:drogovat_mobile/core/utils/cache_helper.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/views/initial_view.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/another_sign_up_way.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/build_check_row.dart';
-import 'package:drogovat_mobile/features/registration/widgets/large_btn.dart';
 import 'package:drogovat_mobile/features/registration/sign_up/presentation/views/sign_up_view.dart';
 import 'package:drogovat_mobile/features/registration/widgets/build_header.dart';
 import 'package:drogovat_mobile/features/registration/widgets/custom_rich_text.dart';
 import 'package:drogovat_mobile/features/registration/widgets/custom_text_field.dart';
+import 'package:drogovat_mobile/features/registration/widgets/large_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +24,6 @@ class SignInViewBody extends StatefulWidget {
 }
 
 class _SignInViewBodyState extends State<SignInViewBody> {
-
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
@@ -71,7 +69,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     CustomTextField(
                       hintText: 'Email',
                       textInputType: TextInputType.emailAddress,
-                      prefixIcon: personIcon,
+                      prefixIcon: Icons.person,
                       controller: emailController,
                       isPassword: false,
                       validate: (value) {
@@ -86,7 +84,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     const SizedBox(height: 16),
                     CustomTextField(
                       hintText: 'Password',
-                      prefixIcon: lockIcon,
+                      prefixIcon: Icons.lock,
                       suffixIcon: cubit.suffixPassIcon,
                       controller: passwordController,
                       isPassword: cubit.isPassword,
@@ -121,7 +119,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     const Spacer(),
                     const ThirdParty(text: 'Or Sign in with'),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 30,top: 15),
+                      padding: const EdgeInsets.only(bottom: 30, top: 15),
                       child: MyCustomRichText(
                         firstText: 'Don\'t have an account?',
                         secondText: 'SIGN UP',

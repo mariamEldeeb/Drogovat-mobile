@@ -58,4 +58,10 @@ class SignInCubit extends Cubit<SignInStates> {
         isPassword ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash;
     emit(ChangeVisibilityPassIconState());
   }
+
+  bool isSwitchOn = false;
+  void changeSwitchValue(value) {
+    isSwitchOn = value;
+    emit(ChangeSwitchValueState());
+  }
 }
