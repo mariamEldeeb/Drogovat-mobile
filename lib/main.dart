@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         getPages: pages,
-        home: screen,
+        home: const SignInView(),
       ),
     );
   }

@@ -2,9 +2,11 @@ import 'package:drogovat_mobile/core/functions/navigate.dart';
 import 'package:drogovat_mobile/core/utils/colors.dart';
 import 'package:drogovat_mobile/core/utils/styles.dart';
 import 'package:drogovat_mobile/features/drawer_pages/about_app/presentation/views/about_app_view.dart';
+import 'package:drogovat_mobile/features/drawer_pages/contact_us/presentation/views/contact_us_view.dart';
 import 'package:drogovat_mobile/features/drawer_pages/settings/presentation/views/settings_view.dart';
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 
 import '../../features/drawer_pages/account/presentation/views/account_view.dart';
 import '../utils/assets.dart';
@@ -34,19 +36,9 @@ class MyNavigationDrawer extends StatelessWidget {
             ),
             const SizedBox(height: 70),
             BuildNavDrawerItem(
-              text: 'Language',
-              leading: const Icon(
-                Icons.language_sharp,
-                color: Colors.white,
-                size: 30,
-              ),
-              onTap: () {},
-            ),
-            const SizedBox(height: 40),
-            BuildNavDrawerItem(
               text: 'Settings',
               leading: const Icon(
-                Icons.settings,
+                IconlyLight.setting,
                 color: Colors.white,
                 size: 30,
               ),
@@ -58,7 +50,7 @@ class MyNavigationDrawer extends StatelessWidget {
             BuildNavDrawerItem(
               text: 'My account',
               leading: const Icon(
-                Icons.person,
+                IconlyLight.profile,
                 color: Colors.white,
                 size: 30,
               ),
@@ -72,16 +64,18 @@ class MyNavigationDrawer extends StatelessWidget {
               leading: Image.asset(
                 contactsUsIconPng,
                 color: Colors.white,
-                height: 25,
-                width: 25,
+                height: 35,
+                width: 35,
               ),
-              onTap: () {},
+              onTap: () {
+                drawerNavigation(const ContactUsView());
+              },
             ),
             const Spacer(),
             BuildNavDrawerItem(
-              text: 'About Drogovat',
+              text: 'About DROGOVAT',
               leading: const Icon(
-                Icons.info_outline,
+                IconlyLight.info_circle,
                 color: Colors.white,
                 size: 30,
               ),

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignInCubit extends Cubit<SignInStates> {
   SignInCubit() : super(SignInInitialState());
@@ -49,6 +50,31 @@ class SignInCubit extends Cubit<SignInStates> {
     });
   }
 
+  final googleSignIn = GoogleSignIn();
+  GoogleSignInAccount? _user;
+
+  GoogleSignInAccount get user => _user!;
+
+  Future signInWithGoogle() async {
+    final googleUser = await googleSignIn.signIn();
+    if (googleUser == null) return;
+    _user = googleUser;
+
+    final googleAuth = await googleUser.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    await FirebaseAuth.instance.signInWithCredential(credential).then((value) {
+      emit(SignInSuccessState(uId: value.user!.uid));
+    }).catchError((e) {
+      print(e.toString());
+      emit(SignInErrorState(e.toString()));
+    });
+  }
+
+///////////////////////////////////////////////////////////
   IconData suffixPassIcon = FontAwesomeIcons.eye;
   bool isPassword = true;
 
@@ -60,6 +86,7 @@ class SignInCubit extends Cubit<SignInStates> {
   }
 
   bool isSwitchOn = false;
+
   void changeSwitchValue(value) {
     isSwitchOn = value;
     emit(ChangeSwitchValueState());

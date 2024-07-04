@@ -31,7 +31,7 @@ const String languageIconPng = 'assets/icons/language_icon.png';
 const String folderIcon = 'assets/icons/folder_icon.svg';
 const String folderIconPng = 'assets/icons/folder_icon.png';
 const String contactsUsIcon = 'assets/icons/contact_us_icon.svg';
-const String contactsUsIconPng = 'assets/icons/contact_icon.png';
+const String contactsUsIconPng = 'assets/icons/contact_us.png';
 const String infoIcon = 'assets/icons/info_icon.svg';
 const String infoIconPng = 'assets/icons/info_icon.png';
 

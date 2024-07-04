@@ -13,11 +13,11 @@ class BuildNameColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     var statusConColor;
     var cubit = AppCubit.get(context);
-    if (cubit.displayPatientList[index].patientStatus == 'Done')
+    if (cubit.displayPatientList[index].patientStatus == 'done')
       statusConColor = const Color(0xff2145CF);
-    if (cubit.displayPatientList[index].patientStatus == 'Prepare')
+    if (cubit.displayPatientList[index].patientStatus == 'prepare')
       statusConColor = const Color(0xff949700);
-    if (cubit.displayPatientList[index].patientStatus == 'Active')
+    if (cubit.displayPatientList[index].patientStatus == 'active')
       statusConColor = const Color(0xffB60000);
 
     return Expanded(
