@@ -11,14 +11,12 @@ class SignInCubit extends Cubit<SignInStates> {
   static SignInCubit get(context) => BlocProvider.of(context);
 
   void userSignIn({
-    required String email,
-    required String password,
+    required String email, required String password,
   }) {
     emit(SignInLoadingState());
     FirebaseAuth.instance
         .signInWithEmailAndPassword(
-      email: email,
-      password: password,
+      email: email, password: password,
     )
         .then((value) {
       emit(SignInSuccessState(uId: value.user!.uid));

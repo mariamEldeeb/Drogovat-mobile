@@ -54,7 +54,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
             key: 'uId',
             value: state.uId,
           ).then((value) {
-            navigateOffTo(const InitialView());
+            navigateTo(const InitialView());
           });
         }
       },
@@ -138,8 +138,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     ),
                     const Spacer(),
                     ThirdParty(
-                      text: 'Or Sign in with',
-                      googleOnTap: () {
+                      text: "Or Sign in with",
+                      function: () {
                         cubit.signInWithGoogle();
                       },
                     ),
@@ -149,7 +149,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         firstText: 'Don\'t have an account?',
                         secondText: 'SIGN UP',
                         onTap: () {
-                          navigateOffTo(const SignUpView());
+                          navigateTo(const SignUpView());
                         },
                       ),
                     ),

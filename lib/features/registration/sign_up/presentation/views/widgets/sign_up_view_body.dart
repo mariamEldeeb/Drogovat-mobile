@@ -37,6 +37,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
     emailController.dispose();
     passController.dispose();
     confirmPassController.dispose();
+    nameController.clear();
+    phoneController.clear();
+    emailController.clear();
+    passController.clear();
+    confirmPassController.clear();
     super.dispose();
   }
 
@@ -186,7 +191,12 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         },
                       ),
                       const SizedBox(height: 25),
-                      const ThirdParty(text: 'Or sign up with'),
+                      ThirdParty(
+                        text: 'Or you can sign in with',
+                        function: () {
+                          SignUpCubit.get(context).googleRegister();
+                        },
+                      ),
                       const SizedBox(height: 15),
                       MyCustomRichText(
                         firstText: 'Already have an account?',

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignUpCubit extends Cubit<SignUpStates> {
   SignUpCubit() : super(SignUpInitialState());
@@ -31,9 +32,41 @@ class SignUpCubit extends Cubit<SignUpStates> {
         userId: value.user!.uid,
         phone: phone,
       );
+      emit(RegisterUserSuccessState());
     }).catchError((error) {
       print(error.toString());
       emit(RegisterUserErrorState(error.toString()));
+    });
+  }
+
+  final googleSignIn = GoogleSignIn();
+  GoogleSignInAccount? _user;
+
+  GoogleSignInAccount get user => _user!;
+
+  Future googleRegister() async {
+    emit(RegisterUserLoadingState());
+    final googleUser = await googleSignIn.signIn();
+    if (googleUser == null) return;
+    _user = googleUser;
+
+    final googleAuth = await googleUser.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    await FirebaseAuth.instance.signInWithCredential(credential).then((value) {
+      createUser(
+        name: value.user?.displayName ?? '',
+        email: value.user?.email ?? '',
+        userId: value.user?.uid ?? '',
+        phone: value.user?.phoneNumber ?? '',
+      );
+      emit(RegisterUserSuccessState());
+    }).catchError((e) {
+      print(e.toString());
+      emit(RegisterUserErrorState(e.toString()));
     });
   }
 
@@ -83,6 +116,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
   }
 
   bool isSwitchOn = false;
+
   void changeSwitchValue(value) {
     isSwitchOn = value;
     emit(ChangeSwitchValueState());

@@ -11,6 +11,7 @@ import 'core/utils/cache_helper.dart';
 import 'core/utils/constants.dart';
 import 'core/utils/routes.dart';
 import 'features/initial_page/presentation/views/initial_view.dart';
+import 'features/registration/sign_up/presentation/views/sign_up_view.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         getPages: pages,
-        home: const SignInView(),
+        home: const SignUpView(),
       ),
     );
   }
