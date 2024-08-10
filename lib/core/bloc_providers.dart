@@ -1,3 +1,4 @@
+import 'package:drogovat_mobile/features/drawer_pages/contact_us/manager/contact_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../features/Patients/presentation/manager/patients_cubit.dart';
@@ -19,5 +20,6 @@ class AppBlocProvider {
         BlocProvider(create: (context) => MonitorCubit()),
         BlocProvider(create: (context) => PatientsCubit()),
         BlocProvider(create: (context) => SettingsCubit()),
+        BlocProvider(create: (context) => ContactCubit()),
       ];
 }

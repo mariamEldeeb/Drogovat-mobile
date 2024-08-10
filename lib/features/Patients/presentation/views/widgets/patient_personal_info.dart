@@ -47,11 +47,6 @@ class PatientPersonalInfo extends StatelessWidget {
         ),
         const SizedBox(height: 22),
         OutputContainer(
-          value: '${cubit.displayPatientList[index].typeOfOp}',
-          label: 'Full / Half',
-        ),
-        const SizedBox(height: 22),
-        OutputContainer(
           value: '${cubit.displayPatientList[index].periodOfOp}',
           label: 'Period of operation',
         ),

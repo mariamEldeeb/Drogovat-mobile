@@ -10,7 +10,6 @@ class PatientModel {
   String? heartState;
   String? hypertension;
   String? diabetes;
-  String? typeOfOp;
   String? periodOfOp;
   String? drugId;
   String? heartRate;
@@ -33,7 +32,6 @@ class PatientModel {
     this.heartState,
     this.hypertension,
     this.diabetes,
-    this.typeOfOp,
     this.periodOfOp,
     this.drugId,
     this.heartRate,
@@ -57,7 +55,6 @@ class PatientModel {
     heartState = json['heartState'];
     hypertension = json['hypertension'];
     diabetes = json['diabetes'];
-    typeOfOp = json['typeOfOp'];
     periodOfOp = json['periodOfOp'];
     drugId = json['drugId'];
     heartRate = json['heartRate'];
@@ -82,7 +79,6 @@ class PatientModel {
       'heartState': heartState,
       'hypertension': hypertension,
       'diabetes': diabetes,
-      'typeOfOp': typeOfOp,
       'periodOfOp': periodOfOp,
       'drugId': drugId,
       'heartRate': heartRate,

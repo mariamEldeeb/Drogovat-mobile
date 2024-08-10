@@ -14,8 +14,8 @@ class PatientDrugInfo extends StatelessWidget {
 
     return Column(
       children: [
-        const DrugImageContainer(
-          index: 0,
+        DrugImageContainer(
+          imagePath: '${cubit.displayDrugList[index].drugImage}',
           width: 118,
           height: 118,
         ),

@@ -1,5 +1,6 @@
 import 'package:drogovat_mobile/features/initial_page/presentation/manager/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BuildNameColumn extends StatelessWidget {
   const BuildNameColumn({
@@ -13,11 +14,11 @@ class BuildNameColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     var statusConColor;
     var cubit = AppCubit.get(context);
-    if (cubit.displayPatientList[index].patientStatus == 'done')
+    if (cubit.displayPatientList[index].patientStatus == 'Done')
       statusConColor = const Color(0xff2145CF);
-    if (cubit.displayPatientList[index].patientStatus == 'prepare')
+    if (cubit.displayPatientList[index].patientStatus == 'Prepare')
       statusConColor = const Color(0xff949700);
-    if (cubit.displayPatientList[index].patientStatus == 'active')
+    if (cubit.displayPatientList[index].patientStatus == 'Active')
       statusConColor = const Color(0xffB60000);
 
     return Expanded(
@@ -26,7 +27,7 @@ class BuildNameColumn extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${cubit.displayPatientList[index].patientName}',
+            '${cubit.displayPatientList[index].patientName}'.capitalize!,
             style: const TextStyle(
               fontSize: 18,
             ),

@@ -19,3 +19,11 @@ class SignInErrorState extends SignInStates {
 
   SignInErrorState(this.error);
 }
+
+class PassResetSuccessState extends SignInStates {}
+
+class PassResetErrorState extends SignInStates {
+  final String error;
+
+  PassResetErrorState(this.error);
+}

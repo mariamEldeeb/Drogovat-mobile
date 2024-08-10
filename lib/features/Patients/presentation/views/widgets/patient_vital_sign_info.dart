@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/styles.dart';
 import '../../../../initial_page/presentation/manager/app_cubit/app_cubit.dart';
+import 'build_vital_item.dart';
 
 class PatientVitalSignInfo extends StatelessWidget {
   const PatientVitalSignInfo({super.key, required this.index});
@@ -16,86 +16,55 @@ class PatientVitalSignInfo extends StatelessWidget {
 
     return Column(
       children: [
-        buildVitalItem(
+        BuildVitalItem(
           vitalText: 'HR',
           vitalTextColor: const Color(0xff630101),
           vitalValue: '${cubit.patients[index].heartRate}',
-          icon: heartIcon,
+          vitalIcon: heartIcon,
         ),
         const SizedBox(height: 10),
-        buildVitalItem(
+        BuildVitalItem(
           vitalText: 'BP',
           vitalTextColor: const Color(0xff964003),
           vitalValue: '${cubit.patients[index].bloodPressure}',
-          icon: BPIcon,
+          vitalIcon: BPIcon,
         ),
         const SizedBox(height: 10),
-        buildVitalItem(
+        BuildVitalItem(
           vitalText: 'RR',
           vitalTextColor: const Color(0xff7B6902),
           vitalValue: '${cubit.patients[index].rasRate}',
-          icon: RRIcon,
+          vitalIcon: RRIcon,
         ),
         const SizedBox(height: 10),
-        buildVitalItem(
+        BuildVitalItem(
           vitalText: 'SpO2',
           vitalTextColor: const Color(0xff1C7406),
           vitalValue: '${cubit.patients[index].oxSaturation} %',
-          icon: OSIcon,
+          vitalIcon: OSIcon,
         ),
         const SizedBox(height: 10),
-        buildVitalItem(
+        BuildVitalItem(
           vitalText: 'EtCO2',
           vitalTextColor: const Color(0xff028585),
           vitalValue: '${cubit.patients[index].endTidalCarbon}',
-          icon: CO2Icon,
+          vitalIcon: CO2Icon,
         ),
         const SizedBox(height: 10),
-        buildVitalItem(
+        BuildVitalItem(
           vitalText: 'Temp',
           vitalTextColor: const Color(0xff06085D),
           vitalValue: '${cubit.patients[index].temp} ℃',
-          icon: TIcon,
+          vitalIcon: TIcon,
         ),
         const SizedBox(height: 10),
-        buildVitalItem(
+        BuildVitalItem(
           vitalText: 'ECG',
           vitalTextColor: const Color(0xff3C0866),
           vitalValue: '${cubit.patients[index].electrocardiogram}',
-          icon: electrocardiogramIcon,
+          vitalIcon: electrocardiogramIcon,
         ),
       ],
-    );
-  }
-
-  Container buildVitalItem({vitalText, vitalValue, vitalTextColor, icon}) {
-    return Container(
-      height: 45,
-      width: 200,
-      padding: const EdgeInsets.only(left: 20, right: 10),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: vitalText,
-            width: 1,
-          ),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            vitalValue,
-            style: Styles.textStyle20.copyWith(color: vitalTextColor),
-          ),
-          Image.asset(
-            icon,
-            fit: BoxFit.contain,
-            width: 25,
-            height: 25,
-          ),
-        ],
-      ),
     );
   }
 }

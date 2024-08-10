@@ -28,13 +28,7 @@ class GetPatientDataErrorState extends AppStates {
   GetPatientDataErrorState(this.errorMessage);
 }
 
-class ProfileImagePickedSuccessState extends AppStates {}
-
-class ProfileImagePickedErrorState extends AppStates {}
-
 class UserUpdateLoadingState extends AppStates {}
-
-class UploadProfileImageErrorState extends AppStates {}
 
 class UserUpdateErrorState extends AppStates {}
 

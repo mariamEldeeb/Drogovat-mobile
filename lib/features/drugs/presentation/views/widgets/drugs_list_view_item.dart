@@ -31,42 +31,23 @@ class DrugsListViewItem extends StatelessWidget {
         child: Row(
           children: [
             DrugImageContainer(
-              index: index,
-              width: 67,
-              height: 67,
+              imagePath:
+                  '${AppCubit.get(context).displayDrugList[index].drugImage}',
+              width: 85,
+              height: 85,
             ),
             const SizedBox(width: 19),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        AppCubit.get(context).displayDrugList[index].drugName ??
-                            '',
-                        style:
-                            Styles.textStyle20.copyWith(color: darkBlueColor),
-                      ),
-                      Container(
-                        height: 24,
-                        width: 72,
-                        decoration: BoxDecoration(
-                            color: const Color(0xff2145CF),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: const Center(
-                          child: Text(
-                            'available',
-                            style: TextStyle(color: Colors.white, fontSize: 14),
-                          ),
-                        ),
-                      ),
-                    ],
+                  Text(
+                    '${AppCubit.get(context).displayDrugList[index].drugName}',
+                    style: Styles.textStyle20.copyWith(color: darkBlueColor),
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'set as first potion',
+                    'Tap for more details',
                     style: TextStyle(
                       color: Color(0xFF838383),
                       fontSize: 16,

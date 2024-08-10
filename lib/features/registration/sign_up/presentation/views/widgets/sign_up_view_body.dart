@@ -164,6 +164,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         condition: state is! RegisterUserLoadingState,
                         builder: (context) {
                           return LargeButton(
+                            isIcon: true,
                             text: 'Sign Up',
                             onTap: () {
                               if (signUpFormKey.currentState!.validate() &&

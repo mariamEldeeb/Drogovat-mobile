@@ -65,31 +65,18 @@ class EditProfileView extends StatelessWidget {
                         color: Colors.grey[500],
                         border: Border.all(color: backgroundColor, width: 6),
                       ),
-                      child: AppCubit.get(context).uModel?.image == null
-                          ? Center(
-                              child: Text(
-                                AppCubit.get(context)
-                                    .uModel!
-                                    .name![0]
-                                    .toUpperCase(),
-                                style: const TextStyle(
-                                  fontSize: 60,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            )
-                          : Image.network(
-                              AppCubit.get(context).uModel?.image ?? '',
-                            ),
+                      child: Center(
+                        child: Text(
+                          AppCubit.get(context).uModel!.name![0].toUpperCase(),
+                          style: const TextStyle(
+                            fontSize: 60,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        cubit.uploadProfileImage(
-                          name: nameController.text,
-                          phone: phoneController.text,
-                          email: emailController.text,
-                        );
-                      },
+                      onPressed: () {},
                       child: Text(
                         'Edit Profile Image',
                         style: Styles.textStyle18

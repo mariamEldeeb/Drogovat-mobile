@@ -69,6 +69,8 @@ class AddPatientContainer extends StatelessWidget {
                 },
               ),
               const CustomFilledButton(
+                width: 115,
+                height: 45,
                 text: 'Add',
                 textColor: Colors.white,
               ),

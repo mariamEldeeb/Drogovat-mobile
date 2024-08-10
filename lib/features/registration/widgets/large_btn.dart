@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LargeButton extends StatelessWidget {
-  const LargeButton({super.key, this.onTap, required this.text});
+  const LargeButton(
+      {super.key, this.onTap, required this.text, required this.isIcon});
 
   final Function()? onTap;
   final String text;
+  final bool isIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +32,13 @@ class LargeButton extends StatelessWidget {
               text,
               style: Styles.textStyle22.copyWith(color: Colors.black),
             ),
-            const Icon(
-              FontAwesomeIcons.arrowRight,
-              color: Colors.white,
-              size: 28,
-            ),
+            isIcon
+                ? const Icon(
+                    FontAwesomeIcons.arrowRight,
+                    color: Colors.white,
+                    size: 28,
+                  )
+                : const SizedBox(),
           ],
         ),
       ),

@@ -16,7 +16,7 @@ class AboutAppView extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
           title: const Text(
-            'Just For Fun',
+            'About App',
             style: TextStyle(
               fontSize: 30,
               color: darkBlueColor,

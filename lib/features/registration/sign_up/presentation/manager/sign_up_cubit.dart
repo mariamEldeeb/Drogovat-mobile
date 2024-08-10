@@ -81,7 +81,6 @@ class SignUpCubit extends Cubit<SignUpStates> {
       email: email,
       phone: phone,
       userId: userId,
-      image: '',
     );
 
     FirebaseFirestore.instance

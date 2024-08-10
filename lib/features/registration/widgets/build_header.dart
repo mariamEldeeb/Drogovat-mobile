@@ -5,9 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import '../../../core/utils/assets.dart';
 
 class RegisHeader extends StatelessWidget {
-  const RegisHeader({super.key, required this.title});
+  const RegisHeader({super.key, this.title});
 
-  final String title;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +27,9 @@ class RegisHeader extends StatelessWidget {
                 width: 52,
                 height: 62,
               ),
-              const SizedBox(
-                height: 18,
-              ),
+              const SizedBox(height: 18),
               Text(
-                title,
+                title ?? '',
                 style: Styles.textStyle28,
               )
             ],

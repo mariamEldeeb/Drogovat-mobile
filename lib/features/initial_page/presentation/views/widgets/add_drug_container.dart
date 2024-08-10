@@ -72,7 +72,9 @@ class _AddDrugContainerState extends State<AddDrugContainer> {
                   Get.back();
                 },
               ),
-              CustomFilledButton(
+              const CustomFilledButton(
+                height: 45,
+                width: 115,
                 text: 'Add',
                 textColor: Colors.white,
               ),

@@ -6,10 +6,11 @@ import '../widgets/custom_dialog.dart';
 Future<Object?> showCustomDialog({
   required BuildContext context,
   Widget? child,
+  bool barrierDismissible = false,
 }) {
   return showGeneralDialog(
     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-    // barrierDismissible: true,
+    barrierDismissible: barrierDismissible,
     barrierColor: dialogBarrierColor,
     context: context,
     pageBuilder: (BuildContext context, Animation<double> animation,

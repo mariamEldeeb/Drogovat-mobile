@@ -62,7 +62,7 @@ class AccountView extends StatelessWidget {
                           color: darkBlueColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Image.asset(fadeLogoPng),
+                        child: Image.asset(fadeLogo),
                       ),
                       const ProfileImageCircle(),
                     ],

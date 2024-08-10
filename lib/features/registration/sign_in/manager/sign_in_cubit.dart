@@ -1,6 +1,10 @@
+import 'dart:async';
+
+import 'package:drogovat_mobile/core/functions/show_custom_dialog.dart';
 import 'package:drogovat_mobile/features/registration/sign_in/manager/sign_in_state.dart';
+import 'package:drogovat_mobile/features/registration/sign_in/presentation/views/widgets/pass_reset_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -11,12 +15,14 @@ class SignInCubit extends Cubit<SignInStates> {
   static SignInCubit get(context) => BlocProvider.of(context);
 
   void userSignIn({
-    required String email, required String password,
+    required String email,
+    required String password,
   }) {
     emit(SignInLoadingState());
     FirebaseAuth.instance
         .signInWithEmailAndPassword(
-      email: email, password: password,
+      email: email,
+      password: password,
     )
         .then((value) {
       emit(SignInSuccessState(uId: value.user!.uid));
@@ -70,6 +76,28 @@ class SignInCubit extends Cubit<SignInStates> {
       print(e.toString());
       emit(SignInErrorState(e.toString()));
     });
+  }
+
+  Future passwordReset(String email, BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email.trim());
+      showCustomDialog(
+        context: context,
+        barrierDismissible: true,
+        child: const PassResetDialog(
+          dialogText: 'Password reset link has been sent.\nCheck your email',
+        ),
+      );
+      emit(PassResetSuccessState());
+    } on FirebaseAuthException catch (e) {
+      print(e.toString());
+      showCustomDialog(
+        barrierDismissible: true,
+        context: context,
+        child: PassResetDialog(dialogText: e.message.toString()),
+      );
+      emit(PassResetErrorState(e.toString()));
+    }
   }
 
 ///////////////////////////////////////////////////////////
